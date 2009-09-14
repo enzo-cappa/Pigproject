@@ -2,7 +2,8 @@ class StoreController < ApplicationController
   before_filter :find_cart, :except => :empty_cart
 
   def index
-    @products = Product.find_products_for_sale
+    @products = paginate(:products, :order => 'title', :per_page => 10)
+      Product.find_products_for_sale
     @cart = find_cart
   end
 
@@ -16,7 +17,7 @@ class StoreController < ApplicationController
       format.html {redirect_to_index}
     end
   rescue ActiveRecord::RecordNotFound
-    logger.error("Attempt to access invalid product #{params[:id]}" )    
+    logger.error("Attempt to access invalid product #{params[:id]}" )
     redirect_to_index("Invalid product")
   end
 
@@ -47,7 +48,7 @@ class StoreController < ApplicationController
   end
 
   protected
-  
+
   def authorize
   end
 
