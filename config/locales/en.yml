@@ -1,0 +1,52 @@
+en:
+  layout:
+    title: "Pragmatic Bookshelf"
+    side:
+      home: "Home"
+      questions: "Questions"
+      news: "News"
+      contact: "Contact"
+    cart:
+      title: "Your Cart"
+      button:
+        empty: "Empty cart"
+        checkout: "Checkout"
+        
+  main:
+    title: "Your Pragmatic Catalog"
+    button:
+      add: "Add to Cart"
+
+  checkout:
+    legend: "Please Enter your Details"
+    name: "Name"
+    address: "Address"
+    email: "E-mail"
+    pay_type: "Pay with"
+    pay_prompt: "Select a payment method"
+    submit: "Place Order"
+
+  flash:
+    thanks: "Thank you for your order"
+
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
+
+
+
+  
+
+
+
+
+
+
+
+
+
