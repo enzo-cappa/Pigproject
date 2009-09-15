@@ -3,7 +3,7 @@ class StoreController < ApplicationController
 
   def index
     @letter = params[:letter].blank? ? 'a' : params[:letter]
-    @letter_options_list = Product.find_products_for_sale.collect!{ |c| c.title[0,1].upcase }
+    @letter_options_list = Product.find_products_for_sale.collect!{ |c| c.title[0,1].upcase }.uniq
     if params[:letter] == '#'
       @products = Product.find(:all, :conditions => ["title REGEXP ?", "^[^a-z]"], :order => 'title')
     else
