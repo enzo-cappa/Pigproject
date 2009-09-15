@@ -2,7 +2,14 @@ class StoreController < ApplicationController
   before_filter :find_cart, :except => :empty_cart
 
   def index
-    @products = Product.find_products_for_sale
+    @letter = params[:letter].blank? ? 'a' : params[:letter]
+    @letter_options_list = Product.find_products_for_sale.collect!{ |c| c.title[0,1].upcase }
+    if params[:letter] == '#'
+      @products = Product.find(:all, :conditions => ["title REGEXP ?", "^[^a-z]"], :order => 'title')
+    else
+      @products = Product.find(:all, :conditions => ["title LIKE ?","#{params[:letter]}%"], :order => 'title')
+    end
+#    @products = Product.find_products_for_sale
     @cart = find_cart
   end
 

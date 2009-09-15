@@ -1,4 +1,13 @@
 <h1><%= I18n.t 'main.title' %></h1>
+<div class ="pagination">
+  <% @letter_options_list.each do |letter| %>
+    <% if params[:letter] == letter %>
+      <span class="current"><%= letter %></span>
+    <% else %>
+      <%= link_to letter, :controller=>'store', :action=>'index', :letter=> letter %>
+    <% end %>
+  <% end %>
+</div>
 <% for product in @products -%>
   <div class="entry">
     <%= image_for(product) %>
