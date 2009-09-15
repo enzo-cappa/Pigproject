@@ -12,7 +12,7 @@ es:
         empty: "Vaciar Carrito"
         checkout: "Comprar"
   main:
-    title: "Su Catálogo de Pragmatic"
+    title: "Productos disponibles"
     button:
       add: "Añadir al Carrito"
 
