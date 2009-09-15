@@ -24,10 +24,10 @@
             <%= render(:partial => "cart" , :object => @cart) %>
           <% end %>
         <% end %>
-        <a href="./"><%= I18n.t 'layout.side.home' %></a><br />
-        <a href="./"><%= I18n.t 'layout.side.questions' %></a><br />
-        <a href="./"><%= I18n.t 'layout.side.news' %></a><br />
-        <a href="./"><%= I18n.t 'layout.side.contact' %></a><br />
+        <a href="/"><%= I18n.t 'layout.side.home' %></a><br />
+        <a href="/"><%= I18n.t 'layout.side.questions' %></a><br />
+        <a href="/"><%= I18n.t 'layout.side.news' %></a><br />
+        <a href="/"><%= I18n.t 'layout.side.contact' %></a><br />
 
         <% if session[:user_id] %>
           <br />
