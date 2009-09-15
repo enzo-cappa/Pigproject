@@ -5,6 +5,7 @@ class ProductImage < ActiveRecord::Base
   :max_size => 500.kilobytes,
   :path_prefix => 'public/images/products_images',
   :resize_to => '300x300>',
+  :processor => :Rmagick,
   :thumbnails => {
     :large => '150x150>' ,
     :medium => '100x100>' ,

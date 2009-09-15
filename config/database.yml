@@ -47,7 +47,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: depot_production
+  database: pigdb_prod
   pool: 5
-  username: depot
-  password:
+  username: pigproyect
+  password: pigproyect
