@@ -2,7 +2,7 @@ class StoreController < ApplicationController
   before_filter :find_cart, :except => :empty_cart
 
   def index
-    @products = Product.paginate :page => params[:page], :order => 'title'
+    @products = Product.find_products_for_sale
     @cart = find_cart
   end
 

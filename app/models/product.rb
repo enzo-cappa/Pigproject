@@ -29,8 +29,4 @@ class Product < ActiveRecord::Base
     self.product_image = image
   end
 
-  def self.per_page
-    10
-  end
-
 end
