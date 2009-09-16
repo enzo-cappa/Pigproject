@@ -67,7 +67,7 @@ es:
 
   products:
     list: "Listado de productos"
-    name: "Products"
+    name: "Productos"
     new: "Nuevo producto"
 
 
