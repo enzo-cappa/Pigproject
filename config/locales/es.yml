@@ -57,8 +57,18 @@ es:
         delimiter: "."
         format: "%u %n&nbsp;"
 
+  model:
+     edit: "Editar"
+     destroy: "Eliminar"
+     show: "Ver"
 
+  confirm:
+    are_you_sure: "¿Está seguro?"
 
+  products:
+    list: "Listado de productos"
+    name: "Products"
+    new: "Nuevo producto"
 
 
 

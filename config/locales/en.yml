@@ -11,7 +11,7 @@ en:
       button:
         empty: "Empty cart"
         checkout: "Checkout"
-        
+
   main:
     title: "Your Pragmatic Catalog"
     button:
@@ -38,9 +38,22 @@ en:
         delimiter: ","
         format: "%u%n"
 
+  model:
+    edit: "Edit"
+    destroy: "Destroy"
+    show: "Show"
+
+  confirm:
+    are_you_sure: "Are you sure?"
+
+  products:
+    list: "Listing products"
+    name: "Products"
+    new: "New product"
 
 
-  
+
+
 
 
 
