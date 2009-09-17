@@ -5,9 +5,9 @@ class StoreController < ApplicationController
     @letter = params[:letter].blank? ? 'a' : params[:letter]
     @letter_options_list = Product.find_products_for_sale.collect!{ |c| c.title[0,1].upcase }.uniq
     if params[:letter] == '#'
-      @products = Product.find(:all, :conditions => ["title REGEXP ?", "^[^a-z]"], :order => 'title')
+      @products = Product.find_products_for_sale(["title REGEXP ?", "^[^a-z]"])
     else
-      @products = Product.find(:all, :conditions => ["title LIKE ?","#{params[:letter]}%"], :order => 'title')
+      @products = Product.find_products_for_sale(["title LIKE ?","#{params[:letter]}%"])
     end
 #    @products = Product.find_products_for_sale
     @cart = find_cart

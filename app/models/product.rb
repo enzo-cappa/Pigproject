@@ -7,13 +7,13 @@ class Product < ActiveRecord::Base
   validates_numericality_of :price
   validate :price_must_be_at_least_a_cent
   validates_uniqueness_of :title
-#  validates_format_of :image_url,
-#    :with => %r{\.(gif|jpg|png)$}i,
-#    :message => 'must be a URL for GIF, JPG ' +
-#    'or PNG image.'
+  validates_numericality_of :stock
+  validate :stock_must_be_positive
 
-  def self.find_products_for_sale
-    find(:all, :order => "title" )
+
+  def self.find_products_for_sale(conditions = nil)
+    query_conditions = ["stock > 0", conditions]
+    find(:all, :conditions =>  query_conditions, :order => "title" )
   end
 
   protected
@@ -21,6 +21,11 @@ class Product < ActiveRecord::Base
   def price_must_be_at_least_a_cent
     errors.add(:price, 'should be at least 0.01' ) if price.nil? ||
       price < 0.01
+  end
+
+  def stock_must_be_positive
+    errors.add(:stock, 'should be positive or cero' ) if stock.nil? ||
+      stock < 0
   end
 
   def image=(file)

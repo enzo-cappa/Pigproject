@@ -17,7 +17,10 @@
   <%=h @product.price %>
 </p>
 
-
+<p>
+  <b>Stock:</b>
+  <%=h @product.stock %>
+</p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
