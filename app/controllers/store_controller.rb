@@ -9,7 +9,6 @@ class StoreController < ApplicationController
     else
       @products = Product.find_products_for_sale(["title LIKE ?","#{params[:letter]}%"])
     end
-#    @products = Product.find_products_for_sale
     @cart = find_cart
   end
 
