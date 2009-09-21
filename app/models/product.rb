@@ -10,11 +10,8 @@ class Product < ActiveRecord::Base
   validates_numericality_of :stock
   validate :stock_must_be_positive
 
-
-  def self.find_products_for_sale(conditions = nil)
-    query_conditions = ["stock > 0", conditions]
-    find(:all, :conditions =>  query_conditions, :order => "title" )
-  end
+  named_scope :for_sale, :conditions => ["stock > 0"]
+  named_scope :starting_with, lambda{|letter|{:conditions => ["title LIKE ?", "#{letter}%"], :order => "title"}}
 
   protected
 

@@ -3,12 +3,8 @@ class StoreController < ApplicationController
 
   def index
     @letter = params[:letter].blank? ? 'a' : params[:letter]
-    @letter_options_list = Product.find_products_for_sale.collect!{ |c| c.title[0,1].upcase }.uniq
-    if params[:letter] == '#'
-      @products = Product.find_products_for_sale(["title REGEXP ?", "^[^a-z]"])
-    else
-      @products = Product.find_products_for_sale(["title LIKE ?","#{params[:letter]}%"])
-    end
+    @letter_options_list = Product.for_sale.collect!{ |c| c.title[0,1].upcase }.uniq
+    @products = Product.for_sale.starting_with(params[:letter])
     @cart = find_cart
   end
 
