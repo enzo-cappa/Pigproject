@@ -12,8 +12,6 @@ class ProductImage < ActiveRecord::Base
     :small => '64x64>'
   }
 
-
-
   validates_as_attachment
 
   def full_filename(thumbnail = nil)

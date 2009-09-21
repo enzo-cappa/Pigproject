@@ -10,8 +10,8 @@ class Product < ActiveRecord::Base
   validates_numericality_of :stock
   validate :stock_must_be_positive
 
-  named_scope :for_sale, :conditions => ["stock > 0"]
-  named_scope :starting_with, lambda{|letter|{:conditions => ["title LIKE ?", "#{letter}%"], :order => "title"}}
+  named_scope :for_sale, :conditions => ["stock > 0"], :order => :title
+  named_scope :starting_with, lambda{|letter|{:conditions => ["title LIKE ?", "#{letter}%"]}}
 
   protected
 
