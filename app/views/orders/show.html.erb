@@ -17,6 +17,24 @@
   <b>Pay type:</b>
   <%=h @order.pay_type %>
 </p>
+<p>
+  <b>Products:</>
+<table>
+  <% @order.line_items.each do |line_item| %>
+
+      <tr>
+        <td><%= line_item.quantity %>&times;</td>
+        <td><%=h line_item.product.title %></td>
+        <td><%= number_to_currency(line_item.total_price) %></td>
+      </tr>
+  <% end %>
+      <tr>
+       <td colspan="2"><b>Total</b></td>
+        <td ><%= number_to_currency(@order.line_items.sum(:total_price)) %></td>
+    </tr>
+</table>
+
+  </p>
 
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
