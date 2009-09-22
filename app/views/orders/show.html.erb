@@ -29,7 +29,7 @@
       </tr>
   <% end %>
       <tr>
-       <td colspan="2"><b>Total</b></td>
+       <td colspan="2" style="text-align: right"><b>Total</b></td>
         <td ><%= number_to_currency(@order.line_items.sum(:total_price)) %></td>
     </tr>
 </table>
