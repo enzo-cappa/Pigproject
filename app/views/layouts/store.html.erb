@@ -28,13 +28,15 @@
         <a href="/"><%= I18n.t 'layout.side.questions' %></a><br />
         <a href="/"><%= I18n.t 'layout.side.news' %></a><br />
         <a href="/"><%= I18n.t 'layout.side.contact' %></a><br />
+        <%= link_to 'Delinquents', :controller => 'deposits', :action => 'amount_by_user' %>
+        <br />
 
         <% if session[:user_id] %>
           <br />
           <%= link_to 'Orders', :controller => 'orders' %><br />
           <%= link_to  I18n.t('products.name'), :controller => 'products' %><br />
-          <%= link_to 'Users', :controller => 'users'
-        %><br />
+          <%= link_to 'Users', :controller => 'users' %><br />
+          <%= link_to 'Deposits', :controller => 'deposits' %>
           <br />
           <%= link_to 'Logout', :controller => 'admin', :action => 'logout' %>
         <% end %>

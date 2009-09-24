@@ -1,0 +1,19 @@
+<h1>Listing deposits</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Description</th>
+    <th>Amount</th>
+  </tr>
+
+<% @deposits.each do |deposit| %>
+  <tr>
+    <td><%=h deposit.user.name %></td>
+    <td><%=h deposit.description %> </td>
+    <td><%= number_to_currency(deposit.amount) %> </td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New deposit', new_deposit_path %>

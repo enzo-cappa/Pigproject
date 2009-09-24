@@ -1,0 +1,14 @@
+<table>
+  <tr>
+  <th>User</th>
+  <th>Final amount</th>
+  </tr>
+
+<% @users_amount_map.each do |user, amount| %>
+  <tr>
+    <td><%=h user %></td>
+    <td><%= number_to_currency(amount)%> </td>
+  </tr>
+<% end %>
+
+</table>

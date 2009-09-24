@@ -1,0 +1,24 @@
+<h1>New deposit</h1>
+
+<% form_for(@deposit) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%=f.label :amount %><br />
+    <%=f.text_field :amount %>
+  </p>
+
+  <p>
+    <%=f.label :description %><br />
+    <%=f.text_field :description %>
+  </p>
+
+  <p>
+    <%=f.label :user_id %> <br/>
+  <%= select('deposit', 'user_id', options_for_select(@users, :user)) %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', deposits_path %>

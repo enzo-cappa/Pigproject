@@ -1,6 +1,8 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
+  has_many :deposits
+
   validates_presence_of :name
   validates_uniqueness_of :name
   validates_confirmation_of :password
@@ -29,7 +31,7 @@ class User < ActiveRecord::Base
     end
     user
   end
-  
+
   private
 
   def password_non_blank
