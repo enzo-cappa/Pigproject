@@ -10,9 +10,9 @@
   <tr>
     <td><%=h user.name %></td>
     <td><%=h user.type %></td>
-  <td><%= link_to 'Show', "#{user.id}" %></td>
-    <td><%= link_to 'Edit', edit_user_path(user)%></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to I18n.t('model.show'), user %></td>
+    <td><%= link_to I18n.t('model.edit'), edit_user_path(user) %></td>
+    <td><%= link_to I18n.t('model.destroy'), user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

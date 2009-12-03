@@ -8,9 +8,9 @@
 <% @admins.each do |admin| %>
   <tr>
     <td><%=h admin.name %></td>
-    <td><%= link_to 'Show', "#{admin.id}" %></td>
-    <td><%= link_to 'Edit', edit_administrator_path(admin)%></td>
-    <td><%= link_to 'Destroy', admin, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to I18n.t('model.show'), admin %></td>
+    <td><%= link_to I18n.t('model.edit'), edit_administrator_path(admin) %></td>
+    <td><%= link_to I18n.t('model.destroy'), admin, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

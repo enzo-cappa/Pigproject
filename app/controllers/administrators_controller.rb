@@ -13,7 +13,7 @@ class AdministratorsController < ApplicationController
   # GET /administrators/1
   # GET /administrators/1.xml
   def show
-    @admins = Administrator.find(params[:id])
+    @admin = Administrator.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
