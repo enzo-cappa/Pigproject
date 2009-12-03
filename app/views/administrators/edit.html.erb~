@@ -1,7 +1,7 @@
 <div class="depot-form">
-  <%  form_for(@user) do |f| %>
-<%= f.error_messages %>
-<fieldset>
+<%  form_for(@user) do |f| %>
+  <%= f.error_messages %>
+      <fieldset>
   <legend>Editing user</legend>
   <div>
     <%= f.label :name %>:
@@ -14,12 +14,15 @@
   <div>
     <%= f.label :user_password_confirmation, 'Confirm' %>:
     <%= f.password_field :password_confirmation, :size => 40 %>
-  </div>
-
-  <div>
-    <%= f.submit "Edit User" , :class => "submit" %>
-  </div>
-</fieldset>
+      </div>
+      <div>
+       <%= f.label :user_type %>
+       <%= select('user', 'type', options_for_select(@categories, @user.type)) %>
+      </div>
+      <div>
+        <%= f.submit "Edit User" , :class => "submit" %>
+      </div>
+    </fieldset>
 <% end %>
 </div>
 

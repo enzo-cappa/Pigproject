@@ -2,7 +2,7 @@
   <% form_for(@user) do |f| %>
     <%= f.error_messages %>
     <fieldset>
-      <legend>Enter User Details</legend>
+      <legend>Enter Administrator Details</legend>
       <div>
         <%= f.label :name %>:
         <%= f.text_field :name, :size => 40 %>
@@ -15,8 +15,7 @@
         <%= f.label :user_password_confirmation, 'Confirm' %>:
         <%= f.password_field :password_confirmation, :size => 40 %>
       </div>
-
-        <%= f.submit "Add User" , :class => "submit" %>
+        <%= f.submit "Add Administrator" , :class => "submit" %>
       </div>
     </fieldset>
   <% end %>

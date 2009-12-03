@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.connect 'deposits/amount_by_user', :controller => "deposits", :action => "amount_by_user"
+  map.connect 'deposit/amount_by_user', :controller => "deposits", :action => "amount_by_user"
 
   map.resources :deposits
 
@@ -11,6 +11,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :orders
 
   map.resources :products
+
+  map.resources :administrators
 
   # The priority is based upon order of creation: first created -> highest priority.
 

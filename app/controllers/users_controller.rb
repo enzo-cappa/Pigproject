@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.find(:all, :order => :name)
-    
+    @users = User.find(:all, :conditions => { :type => "User" } )
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @categories = [:administrator, :user]
   end
 
   # POST /users
@@ -44,14 +45,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        if @user.save
-          flash[:notice] = "User #{@user.name} was successfully created."
-          format.html { redirect_to(:action=>'index' ) }
-          format.xml  { render :xml => @user, :status => :created, :location => @user }
-        else
-          format.html { render :action => "new" }
-          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-        end
+        flash[:notice] = "User #{@user.name} was successfully created."
+        format.html { redirect_to(:action=>'index' ) }
+        format.xml  { render :xml => @user, :status => :created, :location => @user }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,7 +59,6 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = "User #{@user.name} was successfully updated."
