@@ -1,5 +1,6 @@
 class StoreController < ApplicationController
   before_filter :find_cart, :except => :empty_cart
+  before_filter :authorize_as_user, :except => :index
 
   def index
     @letter = params[:letter].blank? ? 'a' : params[:letter]
@@ -49,6 +50,13 @@ class StoreController < ApplicationController
   end
 
   protected
+
+  def authorize_as_user
+    unless User.find_by_id(session[:user_id])
+      flash[:notice] = "Please log in"
+      redirect_to :controller => 'admin' , :action => 'login'
+    end
+  end
 
   def authorize
   end

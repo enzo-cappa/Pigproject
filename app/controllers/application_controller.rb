@@ -12,8 +12,16 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   protected
-  def authorize
+
+  def authorize_as_user
     unless User.find_by_id(session[:user_id])
+      flash[:notice] = "Please log in"
+      redirect_to :controller => 'admin' , :action => 'login'
+    end
+  end
+
+  def authorize
+    unless Administrator.find_by_id(session[:admin_id])
       flash[:notice] = "Please log in"
       redirect_to :controller => 'admin' , :action => 'login'
     end

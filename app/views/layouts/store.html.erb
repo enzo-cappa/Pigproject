@@ -31,7 +31,7 @@
         <%= link_to 'Delinquents', :controller => 'deposits', :action => 'amount_by_user' %>
         <br />
 
-        <% if session[:user_id] %>
+        <% if session[:admin_id] %>
           <br />
           <%= link_to 'Orders', :controller => 'orders' %><br />
           <%= link_to  I18n.t('products.name'), :controller => 'products' %><br />
