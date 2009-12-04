@@ -1,6 +1,5 @@
 class StoreController < ApplicationController
   before_filter :find_cart, :except => :empty_cart
-  before_filter :authorize_as_user, :except => :index
 
   def index
     @letter = params[:letter].blank? ? 'a' : params[:letter]
@@ -38,25 +37,23 @@ class StoreController < ApplicationController
   end
 
   def save_order
-    @cart = find_cart
-    @order = Order.new(params[:order])
-    @order.add_line_items_from_cart(@cart)
-    if @order.save
-      session[:cart] = nil
-      redirect_to_index(I18n.t('flash.thanks' ))
+    if User.find_by_id(session[:user_id])
+      @cart = find_cart
+      @order = Order.new(params[:order])
+      @order.add_line_items_from_cart(@cart)
+      if @order.save
+        session[:cart] = nil
+        redirect_to_index(I18n.t('flash.thanks' ))
+      else
+        render :action => 'checkout'
+      end
     else
-      render :action => 'checkout'
-    end
-  end
-
-  protected
-
-  def authorize_as_user
-    unless User.find_by_id(session[:user_id])
       flash[:notice] = "Please log in"
       redirect_to :controller => 'admin' , :action => 'login'
     end
   end
+
+  protected
 
   def authorize
   end
