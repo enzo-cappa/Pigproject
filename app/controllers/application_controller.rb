@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   layout "store"
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  before_filter :authorize, :except => :login
+  before_filter :authorize, :except => [ :login, :logout ]
   before_filter :set_locale
 
   # Scrub sensitive parameters from your log
