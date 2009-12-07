@@ -46,6 +46,8 @@ class StoreController < ApplicationController
       if @order.save
         session[:cart] = nil
         redirect_to_index(I18n.t('flash.thanks' ))
+      else
+        redirect_to_index("Error sending order. Probably there isn't enough stock")
       end
     else
       flash[:notice] = "Please log in"
