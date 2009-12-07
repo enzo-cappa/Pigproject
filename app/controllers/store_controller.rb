@@ -27,25 +27,25 @@ class StoreController < ApplicationController
     redirect_to_index
   end
 
-  def checkout
-    @cart = find_cart
-    if @cart.items.empty?
-      redirect_to_index("Your cart is empty" )
-    else
-      @order = Order.new
-    end
-  end
+#  def checkout
+#    @cart = find_cart
+#    if @cart.items.empty?
+#      redirect_to_index("Your cart is empty" )
+#    else
+#      @order = Order.new
+#    end
+#  end
 
   def save_order
-    if User.find_by_id(session[:user_id])
+    user = User.find_by_id(session[:user_id])
+    if user
       @cart = find_cart
-      @order = Order.new(params[:order])
+      @order = Order.new()
+      @order.user = user
       @order.add_line_items_from_cart(@cart)
       if @order.save
         session[:cart] = nil
         redirect_to_index(I18n.t('flash.thanks' ))
-      else
-        render :action => 'checkout'
       end
     else
       flash[:notice] = "Please log in"

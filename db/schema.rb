@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090925170425) do
+ActiveRecord::Schema.define(:version => 20091204202807) do
 
   create_table "deposits", :force => true do |t|
     t.integer  "user_id",                                   :null => false
@@ -29,12 +29,7 @@ ActiveRecord::Schema.define(:version => 20090925170425) do
   end
 
   create_table "orders", :force => true do |t|
-    t.string   "name"
-    t.text     "address"
-    t.string   "email"
-    t.string   "pay_type",   :limit => 10
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "user_id", :null => false
   end
 
   create_table "product_images", :force => true do |t|

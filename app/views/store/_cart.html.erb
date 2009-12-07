@@ -6,7 +6,7 @@
     <td class="total-cell"><%= number_to_currency(cart.total_price) %></td>
   </tr>
 </table>
-<%= button_to I18n.t('layout.cart.button.checkout'), :action => 'checkout' %>
-<%= button_to I18n.t('layout.cart.button.empty'), :action => :empty_cart %>
+<%= button_to I18n.t('layout.cart.button.checkout'), { :action => :save_order }, :confirm => "Are you sure? This can't be undone." %>
+<%= button_to I18n.t('layout.cart.button.empty'), :action => :empty_cart  %>
 
 

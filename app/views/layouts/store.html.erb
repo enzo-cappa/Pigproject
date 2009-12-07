@@ -24,11 +24,12 @@
             <%= render(:partial => "cart" , :object => @cart) %>
           <% end %>
         <% end %>
+<br />
         <a href="/"><%= I18n.t 'layout.side.home' %></a><br />
         <a href="/"><%= I18n.t 'layout.side.questions' %></a><br />
         <a href="/"><%= I18n.t 'layout.side.news' %></a><br />
         <a href="/"><%= I18n.t 'layout.side.contact' %></a><br />
-        <%= link_to 'Delinquents', :controller => 'deposits', :action => 'amount_by_user' %>
+
         <br />
         <% if session[:admin_id] %>
   <br />
@@ -37,6 +38,7 @@
   <%= link_to 'Users', :controller => 'users' %><br />
   <%= link_to 'Administrators', :controller => 'administrators' %> <br />
   <%= link_to 'Deposits', :controller => 'deposits' %>
+<%= link_to 'Delinquents', :controller => 'deposits', :action => 'amount_by_user' %>
   <br />
 <% end %>
 <% if session[:admin_id] or session[:user_id] %>

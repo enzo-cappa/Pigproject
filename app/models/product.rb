@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  has_many :orders, :through => :line_items, :dependent => :destroy
+#  has_many :orders, :through => :line_items, :dependent => :destroy
   has_many :line_items, :dependent => :destroy
   has_one :product_image, :dependent => :destroy
 
@@ -29,6 +29,14 @@ class Product < ActiveRecord::Base
     image = ProductImage.new(:uploaded_data => file)
     image.save
     self.product_image = image
+  end
+
+  def reduce_stock(amount)
+    self.stock = self.stock - amount
+  end
+
+  def increase_stock(amount)
+    self.stock = self.stock + amount
   end
 
 end

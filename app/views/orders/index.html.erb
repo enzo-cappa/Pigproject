@@ -2,21 +2,16 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Email</th>
-    <th>Pay type</th>
+    <th>User</th>
+    <th>Amount</th>
   </tr>
 
 <% @orders.each do |order| %>
   <tr>
-    <td><%=h order.name %></td>
-    <td><%=h order.address %></td>
-    <td><%=h order.email %></td>
-    <td><%=h order.pay_type %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%=h order.user.name %></td>
+    <td><%= number_to_currency(order.total_amount) %></td>
+    <td><%= link_to link_to I18n.t('model.show'), order %></td>
+    <td><%= link_to link_to I18n.t('model.destroy'), order, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
