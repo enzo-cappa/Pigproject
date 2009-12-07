@@ -7,9 +7,13 @@ class LineItem < ActiveRecord::Base
     li.product = cart_item.product
     li.quantity = cart_item.quantity
     li.total_price = cart_item.price
-    li.product.reduce_stock (li.quantity)
-    li.product.save
     li
+  end
+
+  def after_save
+    super
+    self.product.reduce_stock (self.quantity)
+    self.product.save
   end
 
   def destroy
