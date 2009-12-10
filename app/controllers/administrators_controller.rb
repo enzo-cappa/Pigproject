@@ -59,8 +59,8 @@ class AdministratorsController < ApplicationController
   def update
     @admin = Administrator.find(params[:id])
     respond_to do |format|
-      if @admin.update_attributes(params[:user])
-        flash[:notice] = "User #{@admin.name} was successfully updated."
+      if @admin.update_attributes(params[:administrator])
+        flash[:notice] = "Administrator #{@admin.name} was successfully updated."
         format.html { redirect_to(:action=>'index' ) }
         format.xml  { head :ok }
       else
