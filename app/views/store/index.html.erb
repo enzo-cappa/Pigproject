@@ -12,7 +12,9 @@
   <div class="entry">
     <%= image_for(product) %>
     <h3><%=h product.title %></h3>
-    <%= product.description %>
+    <%= product.description %> <br />
+    Stock:
+    <%= product.stock %>
     <div class="price-line">
       <span class="price" ><%= number_to_currency(product.price) %></span>
       <% form_remote_tag :url => { :action => 'add_to_cart', :id => product } do %>
