@@ -13,6 +13,7 @@
       <%= submit_tag 'submit' %>
       <%= javascript_tag "$$('.locale input').each(Element.hide)" %>
     <% end %>
+
     <div id="banner">
       <%= image_tag("logo.png" ) %>
       <%= @page_title || I18n.t('layout.title') %>
@@ -31,6 +32,9 @@
         <a href="/"><%= I18n.t 'layout.side.contact' %></a><br />
 
         <br />
+<% if session[:user_id] %>
+<%= link_to 'Account resume', :controllers => 'store', :action => 'amount_for_user' %><br />
+<% end %>
         <% if session[:admin_id] %>
   <br />
   <%= link_to 'Orders', :controller => 'orders' %><br />
