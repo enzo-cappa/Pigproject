@@ -1,2 +1,2 @@
-class Administrator < User
+class Administrator < AbstractUser
 end

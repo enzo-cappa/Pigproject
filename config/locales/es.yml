@@ -47,6 +47,8 @@ es:
     models:
       order: "pedido"
       deposit: "dep&oacute;sito"
+      user: "usuario"
+      administrator: "administrador"
     attributes:
       order:
         address: "Direcci&oacute;n"
