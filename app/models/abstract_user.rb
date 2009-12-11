@@ -9,6 +9,8 @@ class AbstractUser < ActiveRecord::Base
 
   attr_accessor :password_confirmation
 
+  default_scope :order => 'name ASC'
+
   def password
     @password
   end
