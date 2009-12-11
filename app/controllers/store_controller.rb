@@ -58,14 +58,7 @@ class StoreController < ApplicationController
   def amount_for_user
     user = User.find_by_id(session[:user_id])
     if user
-      deposits = user.deposits.sum(:amount)
-      orders = 0
-      user.orders.each do |o|
-        o.line_items.each do |l|
-          orders += l.quantity * l.product.price
-        end
-      end
-      @amount = deposits - orders
+      @amount = user.actual_account_state
     else
       flash[:notice] = "Please log in"
       redirect_to :controller => 'admin' , :action => 'login'

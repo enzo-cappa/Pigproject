@@ -4,10 +4,10 @@
   <th>Final amount</th>
   </tr>
 
-<% @users_amount_map.map.each do |user, amount| %>
+<% @users.each do |user| %>
   <tr>
-    <td><%=h user %></td>
-    <td><%= number_to_currency(amount) %> </td>
+    <td><%=h user.name %></td>
+    <td><%= number_to_currency(user.actual_account_state) %> </td>
   </tr>
 <% end %>
 
