@@ -39,14 +39,22 @@ es:
         inclusion: "no est&aacute; incluido en la lista"
         blank: "no puede quedar en blanco"
         taken: "ya est&aacute; tomado"
+      models:
+        deposit:
+          attributes:
+            amount:
+              not_a_number: "no es un n&uacute;mero"
     models:
       order: "pedido"
+      deposit: "dep&oacute;sito"
     attributes:
       order:
         address: "Direcci&oacute;n"
         name: "Nombre"
         email: "E-mail"
         pay_type: "Forma de pago"
+      deposit:
+        amount: "Monto"
 
   number:
     currency:

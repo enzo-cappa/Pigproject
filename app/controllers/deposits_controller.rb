@@ -30,9 +30,10 @@ class DepositsController < ApplicationController
     respond_to do |format|
       if @deposit.save
         flash[:notice] = 'Deposit was successfully created.'
-        format.html { redirect_to(@deposit) }
-        format.xml  { render :xml => @deposit, :status => :created, :location => @deposit }
+        format.html { redirect_to :action => 'index' }
       else
+        users = User.find(:all, :order => 'name')
+        @users = users.map {|u| [u.name, u.id] }
         format.html { render :action => "new" }
         format.xml  { render :xml => @deposit.errors, :status => :unprocessable_entity }
       end
