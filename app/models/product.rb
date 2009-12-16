@@ -12,6 +12,7 @@ class Product < ActiveRecord::Base
 
   named_scope :for_sale, :conditions => ["stock > 0"], :order => :title
   named_scope :starting_with, lambda{|letter|{:conditions => ["title LIKE ?", "#{letter}%"]}}
+  default_scope :order => 'title ASC'
 
   protected
 
