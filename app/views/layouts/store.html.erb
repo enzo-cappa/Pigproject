@@ -30,7 +30,7 @@
         <a href="/"><%= I18n.t 'layout.side.questions' %></a><br />
         <a href="/"><%= I18n.t 'layout.side.news' %></a><br />
         <a href="/"><%= I18n.t 'layout.side.contact' %></a><br />
-        <%= link_to 'Top Buyers', :controllers => 'store', :action => 'top_buyers' %><br />
+        <%= link_to 'Top Buyers', :controllers => 'info', :action => 'top_buyers' %><br />
 
         <br />
 <% if session[:user_id] %>
