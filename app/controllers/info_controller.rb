@@ -11,10 +11,15 @@ class InfoController < ApplicationController
     end
   end
 
+  def top_buyers
+    @users = User.find(:all)
+    @users = @users.sort_by{|u| -u.buyed_amount }
+  end
+
   protected
 
   def authorize
   end
-  
+
 end
 

@@ -1,0 +1,14 @@
+<table>
+  <tr>
+  <th>User</th>
+  <th>Final amount</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.name %></td>
+    <td><%= number_to_currency(user.actual_account_state) %> </td>
+  </tr>
+<% end %>
+
+</table>
