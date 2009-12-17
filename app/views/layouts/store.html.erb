@@ -30,11 +30,11 @@
         <a href="/"><%= I18n.t 'layout.side.questions' %></a><br />
         <a href="/"><%= I18n.t 'layout.side.news' %></a><br />
         <a href="/"><%= I18n.t 'layout.side.contact' %></a><br />
-        <%= link_to 'Top Buyers', :controllers => 'info', :action => 'top_buyers' %><br />
+        <%= link_to 'Top Buyers', :controller => 'info', :action => 'top_buyers' %><br />
 
         <br />
 <% if session[:user_id] %>
-<%= link_to 'Account resume', :controllers => 'store', :action => 'amount_for_user' %><br />
+<%= link_to 'Account resume', :controller => 'store', :action => 'amount_for_user' %><br />
 <% end %>
         <% if session[:admin_id] %>
   <br />
