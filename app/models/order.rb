@@ -16,7 +16,7 @@ class Order < ActiveRecord::Base
     amount = 0
 
     line_items.each do |l|
-      amount = l.quantity * l.product.price
+      amount += l.quantity * l.product.price
     end
 
     amount
