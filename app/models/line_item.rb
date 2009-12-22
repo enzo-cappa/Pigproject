@@ -8,7 +8,7 @@ class LineItem < ActiveRecord::Base
     li = self.new
     li.product = cart_item.product
     li.quantity = cart_item.quantity
-    li.total_price = cart_item.price * cart_item.quantity
+    li.total_price = cart_item.price
     li
   end
 
