@@ -14,12 +14,12 @@ class LineItem < ActiveRecord::Base
 
   def after_save
     super
-    self.product.reduce_stock (self.quantity)
+    self.product.reduce_stock(self.quantity)
     self.product.save
   end
 
   def destroy
-    self.product.increase_stock (self.quantity)
+    self.product.increase_stock(self.quantity)
     self.product.save
     super
   end

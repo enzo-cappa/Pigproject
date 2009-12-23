@@ -15,7 +15,8 @@
         <td class="list-actions"
           <%= link_to  I18n.t('model.show'), product %><br/>
           <%= link_to  I18n.t('model.edit'), edit_product_path(product) %><br/>
-          <%= link_to  I18n.t('model.destroy'), product, :confirm =>  I18n.t('confirm.are_you_sure'), :method => :delete %>
+          <%= link_to  I18n.t('model.destroy'), product, :confirm =>  I18n.t('confirm.are_you_sure'), :method => :delete %><br />
+          <%= link_to "Who bought it", :controller => 'info', :action => 'who_bought', :id => product %>
         </td>
       </tr>
     <% end %>

@@ -2,7 +2,7 @@
 <ul>
   <% for order in @orders -%>
     <li>
-      <%= mail_to order.email, order.name %>
+      <%= order.user.name  %>
     </li>
   <% end -%>
 </ul>
