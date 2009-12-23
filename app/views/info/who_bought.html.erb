@@ -2,7 +2,8 @@
 <ul>
   <% for order in @orders -%>
     <li>
-      <%= order.user.name  %>
+      <%= order.user.name  %><br />
+<%= l order.line_items[0].created_at, :format => :short  %>
     </li>
   <% end -%>
 </ul>
