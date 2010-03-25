@@ -2,7 +2,8 @@ class DepositsController < ApplicationController
   # GET /deposits
   # GET /deposits.xml
   def index
-    @deposits = Deposit.all
+    page = params[:page] || 1
+    @deposits = Deposit.paginate :page => page, :order => 'id DESC'
 
     respond_to do |format|
       format.html # index.html.erb

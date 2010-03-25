@@ -2,7 +2,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.xml
   def index
-    @orders = Order.all
+    page = params[:page] || 1
+    @orders = Order.paginate :page => page, :order => 'id DESC'
 
     respond_to do |format|
       format.html # index.html.erb
