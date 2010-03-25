@@ -51,3 +51,6 @@ production:
   pool: 5
   username: pigproyect
   password: pigproyect
+  host: localhost
+  port: 5433
+
