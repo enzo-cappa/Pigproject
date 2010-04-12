@@ -5,12 +5,15 @@ class NewsController < ApplicationController
   
   LINUX_SOURCE='http://lxer.com/module/newswire/headlines.rdf'
   GENERAL_SOURCE='http://www.pagina12.com.ar/diario/rss/ultimas_noticias.xml'
+  SPORTS_SOURCE='http://espndeportes-assets.espn.go.com/rss/news?cc=7586'
   
   def index
     
     feed_url=''
     if params[:source] == 'linux'
       feed_url = LINUX_SOURCE
+    elsif params[:source] == 'sports'
+      feed_url = SPORTS_SOURCE
     else
       feed_url = GENERAL_SOURCE
     end

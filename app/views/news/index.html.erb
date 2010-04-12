@@ -1,7 +1,8 @@
 <h1>Noticias</h1><br/>
 
 <%= link_to 'General', :action=>'index' %> |
-<%= link_to 'Linux', :action => 'index', :source=> 'linux' %>
+<%= link_to 'Linux', :action => 'index', :source=> 'linux' %> |
+<%= link_to 'Sports', :action => 'index', :source => 'sports' %> 
 
 <% @rss.items.each do |item|  %>
   <h3><a href='<%=item.link%>'> <%= item.title%><a/></h3>
