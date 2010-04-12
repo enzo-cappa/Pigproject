@@ -1,5 +1,7 @@
 <div id="product-list">
-  <h1><%= I18n.t('products.list') %></h1>
+
+ <h1><%= I18n.t('products.list') %></h1>
+ <%= link_to I18n.t('products.new'), new_product_path %> <br/>
   <table>
     <% for product in @products %>
       <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
@@ -23,4 +25,3 @@
   </table>
 </div>
 <br />
-<%= link_to I18n.t('products.new'), new_product_path %>

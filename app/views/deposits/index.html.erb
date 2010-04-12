@@ -1,7 +1,9 @@
 <h1>Listing deposits</h1>
 
 <%= will_paginate @deposits %>
-
+<br/>
+<%= link_to 'New deposit', new_deposit_path %>
+<br />
 <table>
   <tr>
     <th>User</th>
@@ -18,4 +20,4 @@
 <% end %>
 </table>
 
-<%= link_to 'New deposit', new_deposit_path %>
+

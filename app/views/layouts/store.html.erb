@@ -28,7 +28,7 @@
 <br />
         <a href="/"><%= I18n.t 'layout.side.home' %></a><br />
         <a href="/"><%= I18n.t 'layout.side.questions' %></a><br />
-        <a href="/"><%= I18n.t 'layout.side.news' %></a><br />
+        <%= link_to I18n.t('layout.side.news'), :controller => 'news', :action => 'index' %><br />
         <a href="/"><%= I18n.t 'layout.side.contact' %></a><br />
         <%= link_to 'Top Buyers', :controller => 'info', :action => 'top_buyers' %><br />
 
