@@ -1,0 +1,9 @@
+<h1>Noticias</h1><br/>
+
+Origen:<%= @rss.channel.title %><br />
+<% @rss.items.each_with_index do |item, i| %>
+  <h3><a href='<%=item.link%>'> <%= i+1 %>.  <%= item.title
+  %><a/></h3>
+  <%= l item.date, :format => :short %>  
+    <%= item.description %>
+<% end %>
