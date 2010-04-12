@@ -1,8 +1,10 @@
 <h1>Noticias</h1><br/>
 
-Origen:<%= @rss.channel.title %><br />
+<%= link_to 'General', :action=>'index' %> |
+<%= link_to 'Linux', :action => 'index', :source=> 'linux' %>
+
 <% @rss.items.each do |item|  %>
   <h3><a href='<%=item.link%>'> <%= item.title%><a/></h3>
-  <%= l item.date, :format => :short %>  
-    <%= truncate(item.description, :length=>500, :omission=>"...") %>
+  <!--<%# l item.date, :format => :short %>  -->
+  <%= truncate(item.description, :length=>500, :omission=>"...") %>
 <% end %>
