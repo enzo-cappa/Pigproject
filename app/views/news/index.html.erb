@@ -2,7 +2,9 @@
 
 <%= link_to 'General', :action=>'index' %> |
 <%= link_to 'Linux', :action => 'index', :source=> 'linux' %> |
-<%= link_to 'Sports', :action => 'index', :source => 'sports' %> 
+<%= link_to 'Sports', :action => 'index', :source => 'sports' %> |
+<%= link_to 'Economy', :action => 'index', :source => 'economy' %> |
+<%= link_to 'Music', :action => 'index', :source => 'music' %> 
 
 <% @rss.items.each do |item|  %>
   <h3><a href='<%=item.link%>'> <%= item.title%><a/></h3>
