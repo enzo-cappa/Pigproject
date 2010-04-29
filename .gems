@@ -1,1 +1,1 @@
-will_paginate --version '~> 2.3.11' --source => 'http://gemcutter.org'
+will_paginate --version '~> 2.3.11' --source => 'gemcutter.org'
