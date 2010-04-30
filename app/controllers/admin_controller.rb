@@ -6,8 +6,6 @@ class AdminController < ApplicationController
         user = User.authenticate(params[:name], params[:password])
         if user
           session[:user_id] = user.id
-          fortune = `/usr/bin/fortune` 
-          flash[:notice] = fortune
           redirect_to(:controller => :store, :action => "index" )
         else
           flash.now[:notice] = "Invalid user/password combination"
