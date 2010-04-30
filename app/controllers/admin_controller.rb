@@ -6,8 +6,10 @@ class AdminController < ApplicationController
         user = User.authenticate(params[:name], params[:password])
         if user
           session[:user_id] = user.id
+          fortune = `fortune \| recode LATIN1..UTF8` 
+          flash[:notice] = fortune
           redirect_to(:controller => :store, :action => "index" )
-         else
+        else
           flash.now[:notice] = "Invalid user/password combination"
         end
       else
