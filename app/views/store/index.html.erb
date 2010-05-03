@@ -1,3 +1,8 @@
+<% unless params[:letter] %>
+  <script language="JavaScript" charset="iso-8859-1" src="http://servicios.citasyrefranes.com/piropo">
+  </script>
+<% end %>
+
 <h1><%= I18n.t 'main.title' %></h1>
 <div class ="pagination">
   <% @letter_options_list.each do |letter| %>
@@ -16,10 +21,10 @@
     Stock:
     <%= product.stock %>
     <div class="price-line">
-      <span class="price" ><%= number_to_currency(product.price) %></span>
+      <span class="price" ><%= number_to_currency(product.active_sell_price.value) %></span>
       <% form_remote_tag :url => { :action => 'add_to_cart', :id => product } do %>
-        <%= submit_tag I18n.t('main.button.add') %>
-      <% end %>
+         <%= submit_tag I18n.t('main.button.add') %>
+<% end %>
     </div>
   </div>
 <% end %>
