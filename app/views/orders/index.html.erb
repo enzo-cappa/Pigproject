@@ -7,12 +7,15 @@
   <tr>
     <th>User</th>
     <th>Amount</th>
+    <th>Date</th>
   </tr>
 
 <% @orders.each do |order| %>
   <tr>
     <td><%=h order.user.name %></td>
-    <td class="moneycolumn"><%= number_to_currency(order.total_amount) %></td>
+    <td class="moneycolumn"><%= number_to_currency(order.total_amount)
+    %></td>
+    <td><%= l order.line_items[0].created_at , :format => :short %> </td>
     <td class="actioncolumn"><%= image_for_show order %>
     <%= image_for_destroy order %></td>
   </tr>
