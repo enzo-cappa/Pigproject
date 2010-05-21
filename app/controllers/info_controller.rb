@@ -7,7 +7,6 @@ class InfoController < ApplicationController
       format.html
       format.json { render :layout => false ,
         :json => @product.to_json(:include => :orders) }
-
     end
   end
 

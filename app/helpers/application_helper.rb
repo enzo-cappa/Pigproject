@@ -8,4 +8,17 @@ module ApplicationHelper
       image_tag("blank-product-#{size}.png" )
     end
   end
+
+  def image_for_edit(entity)
+    link_to(image_tag("/images/edit.png", {:alt => 'edit', :class => 'linkimage'}),{ :controller => entity.class.name.pluralize(), :action => 'edit', :id => entity.id })
+  end
+
+  def image_for_show(entity)
+    link_to(image_tag("/images/show.png", {:alt => 'show', :class => 'linkimage'}), entity)
+  end
+
+  def image_for_destroy(entity)
+    link_to(image_tag("/images/destroy.png", {:alt => 'destroy', :class => 'linkimage' }), entity, :confirm => 'Are you sure?', :method => :delete )
+  end
+
 end

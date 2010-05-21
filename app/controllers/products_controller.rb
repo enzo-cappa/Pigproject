@@ -25,8 +25,10 @@ class ProductsController < ApplicationController
   # GET /products/new.xml
   def new
     @product = Product.new
-    @product_image = ProductImage.new
-
+    @product.active_sell_price = SellPrice.new
+    @product.active_buy_price = BuyPrice.new
+    #    @product_image = ProductImage.new
+   
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @product }

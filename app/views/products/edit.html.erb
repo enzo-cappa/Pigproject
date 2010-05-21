@@ -1,5 +1,4 @@
 <h1>Editing product</h1>
-
 <% form_for(@product, :html => {:multipart => true }) do |f| %>
   <%= f.error_messages %>
 
@@ -16,8 +15,14 @@
     <%= f.file_field 'image'  %>
   </p>
   <p>
-    <%=f.label :price %><br />
-    <%=f.text_field :price %>
+    <%=f.label :active_sell_price %><br/>
+    <span id="sell_prices"><%= render :partial => 'sell_prices', :object => @product.sell_prices %></span>
+    <%= link_to_sell_prices_popup (@product.id) %> 
+  </p>
+  <p>
+    <%=f.label :active_buy_price %><br/>
+    <span id="buy_prices"><%= render :partial => 'buy_prices', :object => @product.buy_prices %> </span>
+    <%= link_to_buy_prices_popup (@product.id) %>
   </p>
   <p>
     <%=f.label :stock %><br />

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :prices
+
 
   map.connect 'deposit/amount_by_user', :controller => "deposits", :action => "amount_by_user"
 

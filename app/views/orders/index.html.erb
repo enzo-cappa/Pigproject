@@ -1,10 +1,9 @@
 <h1>Listing orders</h1>
 
- <%= will_paginate @orders %>
+<%= will_paginate @orders %>
 <br/>
-<%= link_to 'New order', new_order_path %>
 
-<table>
+<table class="modelindex">
   <tr>
     <th>User</th>
     <th>Amount</th>
@@ -13,9 +12,9 @@
 <% @orders.each do |order| %>
   <tr>
     <td><%=h order.user.name %></td>
-    <td><%= number_to_currency(order.total_amount) %></td>
-    <td><%= link_to link_to I18n.t('model.show'), order %></td>
-    <td><%= link_to link_to I18n.t('model.destroy'), order, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="moneycolumn"><%= number_to_currency(order.total_amount) %></td>
+    <td class="actioncolumn"><%= image_for_show order %>
+    <%= image_for_destroy order %></td>
   </tr>
 <% end %>
 </table>

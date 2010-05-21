@@ -15,9 +15,9 @@
           </dl>
         </td>
         <td class="list-actions"
-          <%= link_to  I18n.t('model.show'), product %><br/>
-          <%= link_to  I18n.t('model.edit'), edit_product_path(product) %><br/>
-          <%= link_to  I18n.t('model.destroy'), product, :confirm =>  I18n.t('confirm.are_you_sure'), :method => :delete %><br />
+            <%= image_for_show product %><br/>
+            <%= image_for_edit product %><br/>
+            <%= image_for_destroy product %><br/>
           <%= link_to "Who bought it", :controller => 'info', :action => 'who_bought', :id => product %>
         </td>
       </tr>

@@ -1,7 +1,8 @@
 class LineItem < ActiveRecord::Base
   belongs_to :product
   belongs_to :order
-
+  belongs_to :sell_price
+ 
   validate :product_has_enough_stock
 
   def self.from_cart_item(cart_item)
@@ -9,6 +10,7 @@ class LineItem < ActiveRecord::Base
     li.product = cart_item.product
     li.quantity = cart_item.quantity
     li.total_price = cart_item.price
+    li.sell_price = li.product.active_sell_price
     li
   end
 
@@ -27,7 +29,7 @@ class LineItem < ActiveRecord::Base
   protected
 
   def product_has_enough_stock
-    errors.add(:product, 'stock should be positive or cero' ) if product.stock < quantity
+    errors.add(:product, 'the product doesn\'t have enough stock' ) if product.stock < quantity
   end
 
 end

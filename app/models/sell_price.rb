@@ -1,0 +1,2 @@
+class SellPrice < Price
+end

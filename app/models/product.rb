@@ -1,12 +1,13 @@
 class Product < ActiveRecord::Base
-  has_many :orders, :through => :line_items, :dependent => :destroy
+  has_many :orders, :through => :line_items, :dependent => :destroy, :order => 'id DESC'
   has_many :line_items, :dependent => :destroy
   has_many :sell_prices, :dependent => :destroy
   has_many :buy_prices, :dependent => :destroy
+  has_one :active_sell_price, :class_name => "SellPrice"
+  has_one :active_buy_price, :class_name => "BuyPrice"
   has_one :product_image, :dependent => :destroy
-
+  
   validates_presence_of :title, :description
-  validates_numericality_of :price
   validates_uniqueness_of :title
   validates_numericality_of :stock
   validate :stock_must_be_positive
@@ -14,6 +15,9 @@ class Product < ActiveRecord::Base
   named_scope :for_sale, :conditions => ["stock > 0"], :order => :title
   named_scope :starting_with, lambda{|letter|{:conditions => ["title LIKE ?", "#{letter}%"]}}
   default_scope :order => 'title ASC'
+
+  accepts_nested_attributes_for :active_sell_price, :allow_destroy => false
+  accepts_nested_attributes_for :active_buy_price, :allow_destroy => false
 
   protected
 

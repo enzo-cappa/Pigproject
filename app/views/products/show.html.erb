@@ -13,8 +13,13 @@
 </p>
 
 <p>
-  <b>Price:</b>
-  <%=h @product.price %>
+  <b>Sell Price:</b>
+  <%=h @product.active_sell_price.value %>
+</p>
+
+<p>
+  <b>Buy Price:</b>
+  <%=h @product.active_buy_price.value %>
 </p>
 
 <p>

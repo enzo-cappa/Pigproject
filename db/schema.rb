@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091224131052) do
+ActiveRecord::Schema.define(:version => 20100520132452) do
 
   create_table "abstract_users", :force => true do |t|
     t.string   "name"
@@ -32,12 +32,13 @@ ActiveRecord::Schema.define(:version => 20091224131052) do
   end
 
   create_table "line_items", :force => true do |t|
-    t.integer  "product_id",                                :null => false
-    t.integer  "order_id",                                  :null => false
-    t.integer  "quantity",                                  :null => false
-    t.decimal  "total_price", :precision => 8, :scale => 2, :null => false
+    t.integer  "product_id",                                 :null => false
+    t.integer  "order_id",                                   :null => false
+    t.integer  "quantity",                                   :null => false
+    t.decimal  "total_price",  :precision => 8, :scale => 2, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "buy_price_id"
   end
 
   create_table "orders", :force => true do |t|
@@ -45,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20091224131052) do
   end
 
   create_table "prices", :force => true do |t|
-    t.decimal  "price"
+    t.decimal  "value"
     t.string   "type"
     t.integer  "product_id", :null => false
     t.datetime "created_at"
@@ -70,8 +71,9 @@ ActiveRecord::Schema.define(:version => 20091224131052) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "price",       :precision => 8, :scale => 2, :default => 0.0
-    t.integer  "stock",                                     :default => 0
+    t.integer  "stock",                :default => 0
+    t.integer  "active_sell_price_id"
+    t.integer  "active_buy_price_id"
   end
 
   create_table "sessions", :force => true do |t|

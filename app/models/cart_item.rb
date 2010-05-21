@@ -15,7 +15,7 @@ class CartItem
   end
   
   def price
-    @product.price * @quantity
+    @product.active_sell_price.value * @quantity
   end
 end
 

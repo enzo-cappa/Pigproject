@@ -1,4 +1,4 @@
-<table>
+<table class="modelindex">
   <tr>
   <th>User</th>
   <th>Final amount</th>
@@ -7,7 +7,7 @@
 <% @users.each do |user| %>
   <tr>
     <td><%=h user.name %></td>
-    <td><%= number_to_currency(user.actual_account_state) %> </td>
+    <td class="moneycolumn"><%= number_to_currency(user.actual_account_state) %> </td>
   </tr>
 <% end %>
 
