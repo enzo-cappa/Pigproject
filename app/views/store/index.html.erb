@@ -17,7 +17,8 @@
     <%= product.stock %>
     <div class="price-line">
       <span class="price" ><%= number_to_currency(product.active_sell_price.value) %></span>
-      <% form_remote_tag :url => { :action => 'add_to_cart', :id => product } do %>
+      <%= form_tag :url => { :action => 'add_to_cart', :id => product
+      }, :remote => true do %>
          <%= submit_tag I18n.t('main.button.add') %>
 <% end %>
     </div>

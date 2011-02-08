@@ -14,7 +14,7 @@
     <%= javascript_include_tag 'tooltip'%>
   </head>
   <body id="store">
-    <% form_tag '', :method => 'GET', :class => 'locale' do %>
+    <%= form_tag '', :method => 'GET', :class => 'locale' do %>
     <%= select_tag 'locale', options_for_select(LANGUAGES, I18n.locale), :onchange => 'this.form.submit()' %>
     <%= submit_tag 'submit' %>
     <%= javascript_tag "$$('.locale input').each(Element.hide)" %>
@@ -27,7 +27,7 @@
   <div id="columns">
     <div id="side">
       <% if @cart %>
-        <% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
+        <%= hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
           <%= render(:partial => "cart" , :object => @cart) %>
         <% end %>
       <% end %>

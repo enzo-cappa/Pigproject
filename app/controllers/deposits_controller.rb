@@ -16,7 +16,7 @@ class DepositsController < ApplicationController
   # GET /deposits/new.xml
   def new
     @deposit = Deposit.new
-    users = User.find(:all, :order => 'name')
+    users = User.all(:order => 'name')
     @users = users.map {|u| [u.name, u.id] }
     respond_to do |format|
       format.html # new.html.erb

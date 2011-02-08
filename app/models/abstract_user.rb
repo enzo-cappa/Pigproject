@@ -11,6 +11,9 @@ class AbstractUser < ActiveRecord::Base
 
   default_scope :order => 'name ASC'
 
+  after_destroy :check_user_not_last
+
+
   def password
     @password
   end
@@ -48,7 +51,7 @@ class AbstractUser < ActiveRecord::Base
     self.salt = self.object_id.to_s + rand.to_s
   end
 
-  def after_destroy
+  def  check_user_not_last
     if User.count.zero?
       raise "Can't delete last user"
     end

@@ -5,6 +5,8 @@ class LineItem < ActiveRecord::Base
  
   validate :product_has_enough_stock
 
+  after_save :reduce_stock
+  
   def self.from_cart_item(cart_item)
     li = self.new
     li.product = cart_item.product
@@ -14,8 +16,7 @@ class LineItem < ActiveRecord::Base
     li
   end
 
-  def after_save
-    super
+  def reduce_stock
     self.product.reduce_stock(self.quantity)
     self.product.save
   end

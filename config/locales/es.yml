@@ -1,4 +1,7 @@
 es:
+  orders: "Compras"
+  deposits: "Depósitos"
+  
   layout:
     title: "The Pig Project"
     side:
@@ -79,6 +82,7 @@ es:
      edit: "Editar"
      destroy: "Eliminar"
      show: "Ver"
+     back: "Atrás"
 
   confirm:
     are_you_sure: "¿Está seguro?"

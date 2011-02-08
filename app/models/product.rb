@@ -12,8 +12,8 @@ class Product < ActiveRecord::Base
   validates_numericality_of :stock
   validate :stock_must_be_positive
 
-  named_scope :for_sale, :conditions => ["stock > 0"], :order => :title
-  named_scope :starting_with, lambda{|letter|{:conditions => ["title LIKE ?", "#{letter}%"]}}
+  scope :for_sale, :conditions => ["stock > 0"], :order => :title
+  scope :starting_with, lambda{|letter|{:conditions => ["title LIKE ?", "#{letter}%"]}}
   default_scope :order => 'title ASC'
 
   accepts_nested_attributes_for :active_sell_price, :allow_destroy => false

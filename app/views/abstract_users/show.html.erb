@@ -1,7 +1,9 @@
 <p>
-  <b>Name:</b>
-  <%=h @user.name %>
+    <b>Name:</b>
+    <%=h @user.name %>
 </p>
+<%= link_to t('model.edit'), edit_user_path(@user) %> | 
+ <%= link_to t('orders'), user_orders_path(@user) %> |
+ <%= link_to t('deposits'), user_deposits_path(@user) %> |
+ <%= link_to t('model.back'), users_path %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
