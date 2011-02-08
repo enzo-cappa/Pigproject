@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
   has_one :active_buy_price, :class_name => "BuyPrice"
   has_one :product_image, :dependent => :destroy
   
-  validates_presence_of :title, :description
+  validates_presence_of :title, :description, :active_sell_price, :active_buy_price
   validates_uniqueness_of :title
   validates_numericality_of :stock
   validate :stock_must_be_positive
