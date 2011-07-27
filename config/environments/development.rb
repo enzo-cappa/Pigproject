@@ -1,4 +1,4 @@
-Pigproject::Application.configure do
+PigProject::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
   # In the development environment your application's code is reloaded on
@@ -10,8 +10,7 @@ Pigproject::Application.configure do
   config.whiny_nils = true
 
   # Show full error reports and disable caching
-  config.action_controller.consider_all_requests_local = true
-  config.action_view.debug_rjs                         = true
+  #config.action_controller.consider_all_requests_local = true
   config.action_controller.perform_caching             = false
 
   # Don't care if the mailer can't send
