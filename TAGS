@@ -1,1905 +1,0 @@
-
-app/helpers/deposits_helper.rb,41
-module DepositsHelperDepositsHelper1,0
-
-app/helpers/admin_helper.rb,35
-module AdminHelperAdminHelper1,0
-
-app/helpers/orders_helper.rb,37
-module OrdersHelperOrdersHelper1,0
-
-app/helpers/application_helper.rb,105
-module ApplicationHelperApplicationHelper2,86
-  def image_for(product, size = :medium)image_for3,111
-
-app/helpers/store_helper.rb,152
-module StoreHelperStoreHelper1,0
-  def hidden_div_if(condition, attributes = {}, &block)hidden_div_if2,19
-  def letter_optionsletter_options9,196
-
-app/helpers/users_helper.rb,35
-module UsersHelperUsersHelper1,0
-
-app/helpers/line_items_helper.rb,43
-module LineItemsHelperLineItemsHelper1,0
-
-app/helpers/info_helper.rb,33
-module InfoHelperInfoHelper1,0
-
-app/helpers/products_helper.rb,41
-module ProductsHelperProductsHelper1,0
-
-app/models/sell_price.rb,38
-class SellPrice < PriceSellPrice1,0
-
-app/models/price.rb,102
-class Price < ActiveRecord::BasePrice1,0
-  def must_be_at_least_a_centmust_be_at_least_a_cent6,93
-
-app/models/administrator.rb,53
-class Administrator < AbstractUserAdministrator1,0
-
-app/models/buy_price.rb,36
-class BuyPrice < PriceBuyPrice1,0
-
-app/models/deposit.rb,84
-class Deposit < ActiveRecord::BaseDeposit1,0
-  def user_id=(userid)user_id=6,92
-
-app/models/cart_item.rb,170
-class CartItemCartItem1,0
-  def initialize(product)initialize4,50
-  def increment_quantityincrement_quantity9,124
-  def titletitle13,175
-  def priceprice17,215
-
-app/models/order.rb,150
-class Order < ActiveRecord::BaseOrder1,0
-  def add_line_items_from_cart(cart)add_line_items_from_cart8,177
-  def total_amounttotal_amount15,323
-
-app/models/line_item.rb,234
-class LineItem < ActiveRecord::BaseLineItem1,0
-  def self.from_cart_item(cart_item)from_cart_item7,117
-  def after_saveafter_save15,295
-  def destroydestroy21,396
-  def product_has_enough_stockproduct_has_enough_stock29,509
-
-app/models/product.rb,238
-class Product < ActiveRecord::BaseProduct1,0
-  def stock_must_be_positivestock_must_be_positive20,697
-  def image=(file)image=25,820
-  def reduce_stock(amount)reduce_stock31,945
-  def increase_stock(amount)increase_stock35,1016
-
-app/models/product_image.rb,196
-class ProductImage < ActiveRecord::BaseProductImage1,0
-  def full_filename(thumbnail = nil)full_filename17,396
-  def thumbnail_name_for(thumbnail = nil, asset = nil)thumbnail_name_for27,800
-
-app/models/user.rb,127
-class User < AbstractUserUser1,0
-  def actual_account_stateactual_account_state5,67
-  def buyed_amountbuyed_amount15,301
-
-app/models/cart.rb,171
-class CartCart1,0
-  def initializeinitialize5,36
-  def add_product(product)add_product9,76
-  def total_pricetotal_price20,338
-  def total_itemstotal_items24,400
-
-app/models/abstract_user.rb,397
-class AbstractUser < ActiveRecord::BaseAbstractUser3,23
-  def passwordpassword14,274
-  def password=(pwd)password=18,310
-  def self.authenticate(name, password)authenticate25,480
-  def password_non_blankpassword_non_blank38,748
-  def self.encrypted_password(password, salt)encrypted_password42,853
-  def create_new_saltcreate_new_salt47,997
-  def after_destroyafter_destroy51,1074
-
-app/controllers/deposits_controller.rb,187
-class DepositsController < ApplicationControllerDepositsController1,0
-  def indexindex4,89
-  def newnew17,373
-  def createcreate29,664
-  def amount_by_useramount_by_user44,1160
-
-app/controllers/info_controller.rb,165
-class InfoController < ApplicationControllerInfoController1,0
-  def who_boughtwho_bought3,46
-  def top_buyerstop_buyers14,298
-  def authorizeauthorize21,414
-
-app/controllers/administrators_controller.rb,260
-class AdministratorsController < ApplicationControllerAdministratorsController1,0
-  def indexindex4,107
-  def showshow15,354
-  def newnew26,592
-  def editedit36,784
-  def createcreate42,901
-  def updateupdate59,1461
-  def destroydestroy73,1946
-
-app/controllers/orders_controller.rb,144
-class OrdersController < ApplicationControllerOrdersController1,0
-  def indexindex4,83
-  def showshow16,352
-  def destroydestroy77,1856
-
-app/controllers/application_controller.rb,198
-class ApplicationController < ActionController::BaseApplicationController4,154
-  def authorize_as_userauthorize_as_user16,544
-  def authorizeauthorize23,730
-  def set_localeset_locale30,918
-
-app/controllers/admin_controller.rb,141
-class AdminController < ApplicationControllerAdminController1,0
-  def loginlogin2,46
-  def logoutlogout20,562
-  def indexindex27,733
-
-app/controllers/products_controller.rb,247
-class ProductsController < ApplicationControllerProductsController1,0
-  def indexindex4,89
-  def showshow15,298
-  def newnew26,521
-  def editedit37,743
-  def createcreate43,844
-  def updateupdate60,1369
-  def destroydestroy77,1869
-
-app/controllers/line_items_controller.rb,249
-class LineItemsController < ApplicationControllerLineItemsController1,0
-  def indexindex4,94
-  def showshow15,312
-  def newnew26,544
-  def editedit36,735
-  def createcreate42,843
-  def updateupdate59,1388
-  def destroydestroy76,1904
-
-app/controllers/store_controller.rb,371
-class StoreController < ApplicationControllerStoreController1,0
-  def indexindex4,98
-  def add_to_cartadd_to_cart12,350
-  def empty_cartempty_cart25,738
-  def save_ordersave_order39,976
-  def amount_for_useramount_for_user58,1503
-  def authorizeauthorize70,1763
-  def find_cartfind_cart75,1797
-  def redirect_to_index(msg = nil)redirect_to_index79,1862
-
-app/controllers/users_controller.rb,241
-class UsersController < ApplicationControllerUsersController1,0
-  def indexindex4,80
-  def showshow15,281
-  def newnew26,489
-  def editedit36,661
-  def createcreate43,792
-  def updateupdate60,1310
-  def destroydestroy74,1764
-
-vendor/plugins/attachment_fu/test/basic_test.rb,918
-class BasicTest < Test::Unit::TestCaseBasicTest3,76
-  def test_should_set_default_min_sizetest_should_set_default_min_size4,115
-  def test_should_set_default_max_sizetest_should_set_default_max_size8,224
-  def test_should_set_default_sizetest_should_set_default_size12,342
-  def test_should_set_default_thumbnails_optiontest_should_set_default_thumbnails_option16,457
-  def test_should_set_default_thumbnail_classtest_should_set_default_thumbnail_class20,582
-  def test_should_normalize_content_types_to_arraytest_should_normalize_content_types_to_array24,714
-  def test_should_sanitize_content_typetest_should_sanitize_content_type31,1246
-  def test_should_sanitize_filenamestest_should_sanitize_filenames36,1402
-  def test_should_convert_thumbnail_nametest_should_convert_thumbnail_name47,1750
-  def test_should_require_valid_thumbnails_optiontest_should_require_valid_thumbnails_option58,2286
-
-vendor/plugins/attachment_fu/test/validation_test.rb,378
-class ValidationTest < Test::Unit::TestCaseValidationTest3,76
-  def test_should_invalidate_big_filestest_should_invalidate_big_files4,120
-  def test_should_invalidate_small_filestest_should_invalidate_small_files18,533
-  def test_should_validate_content_typetest_should_validate_content_type32,954
-  def test_should_require_filenametest_should_require_filename46,1354
-
-vendor/plugins/attachment_fu/test/extra_attachment_test.rb,693
-class OrphanAttachmentTest < Test::Unit::TestCaseOrphanAttachmentTest3,76
-  def test_should_create_image_from_uploaded_filetest_should_create_image_from_uploaded_file7,195
-  def test_should_create_file_from_uploaded_filetest_should_create_file_from_uploaded_file17,526
-  def test_should_create_image_from_uploaded_file_with_custom_content_typetest_should_create_image_from_uploaded_file_with_custom_content_type27,854
-  def test_should_create_thumbnailtest_should_create_thumbnail38,1280
-  def test_should_create_thumbnail_with_geometry_stringtest_should_create_thumbnail_with_geometry_string46,1551
-class MinimalAttachmentTest < OrphanAttachmentTestMinimalAttachmentTest55,1843
-
-vendor/plugins/attachment_fu/test/test_helper.rb,953
-class Test::Unit::TestCase #:nodoc:Test41,1114
-  def create_fixtures(*table_names)create_fixtures43,1190
-  def setupsetup51,1438
-  def teardownteardown57,1668
-  def self.attachment_model(klass = nil)attachment_model64,1837
-  def self.test_against_class(test_method, klass, subclass = false)test_against_class69,1947
-  def self.test_against_subclass(test_method, klass)test_against_subclass77,2199
-    def upload_file(options = {})upload_file82,2319
-    def use_temp_file(fixture_filename)use_temp_file90,2603
-    def assert_created(num = 1)assert_created99,2959
-    def assert_not_createdassert_not_created111,3267
-    def should_reject_by_size_with(klass)should_reject_by_size_with115,3341
-    def assert_difference(object, method = nil, difference = 1)assert_difference125,3683
-    def assert_no_difference(object, method, &block)assert_no_difference131,3881
-    def attachment_model(klass = nil)attachment_model135,3997
-
-vendor/plugins/attachment_fu/test/base_attachment_tests.rb,514
-module BaseAttachmentTestsBaseAttachmentTests1,0
-  def test_should_create_file_from_uploaded_filetest_should_create_file_from_uploaded_file2,27
-  def test_reassign_attribute_datatest_reassign_attribute_data15,473
-  def test_no_reassign_attribute_data_on_niltest_no_reassign_attribute_data_on_nil29,890
-  def test_should_overwrite_old_contents_when_updatingtest_should_overwrite_old_contents_when_updating40,1203
-  def test_should_save_without_updating_filetest_should_save_without_updating_file51,1576
-
-vendor/plugins/attachment_fu/test/schema.rb,0
-
-vendor/plugins/attachment_fu/test/geometry_test.rb,1165
-class GeometryTest < Test::Unit::TestCaseGeometryTest4,140
-  def test_should_resizetest_should_resize5,182
-  def test_should_resize_no_widthtest_should_resize_no_width12,331
-  def test_should_resize_no_heighttest_should_resize_no_height19,480
-  def test_should_resize_with_percenttest_should_resize_with_percent26,628
-  def test_should_resize_with_percent_and_no_widthtest_should_resize_with_percent_and_no_width33,792
-  def test_should_resize_with_percent_and_no_heighttest_should_resize_with_percent_and_no_height40,960
-  def test_should_resize_with_lesstest_should_resize_with_less47,1126
-  def test_should_resize_with_less_and_no_widthtest_should_resize_with_less_and_no_width56,1349
-  def test_should_resize_with_less_and_no_heighttest_should_resize_with_less_and_no_height63,1515
-  def test_should_resize_with_greatertest_should_resize_with_greater70,1678
-  def test_should_resize_with_greater_and_no_widthtest_should_resize_with_greater_and_no_width79,1902
-  def test_should_resize_with_greater_and_no_heighttest_should_resize_with_greater_and_no_height86,2070
-    def assert_geometry(width, height, values)assert_geometry94,2246
-
-vendor/plugins/attachment_fu/test/fixtures/attachment.rb,1574
-class Attachment < ActiveRecord::BaseAttachment1,0
-class SmallAttachment < AttachmentSmallAttachment11,210
-class BigAttachment < AttachmentBigAttachment15,291
-class PdfAttachment < AttachmentPdfAttachment19,379
-class DocAttachment < AttachmentDocAttachment23,457
-class ImageAttachment < AttachmentImageAttachment27,545
-class ImageOrPdfAttachment < AttachmentImageOrPdfAttachment31,649
-class ImageWithThumbsAttachment < AttachmentImageWithThumbsAttachment35,765
-class FileAttachment < ActiveRecord::BaseFileAttachment42,1010
-class ImageFileAttachment < FileAttachmentImageFileAttachment47,1182
-class ImageWithThumbsFileAttachment < FileAttachmentImageWithThumbsFileAttachment52,1357
-class ImageWithThumbsClassFileAttachment < FileAttachmentImageWithThumbsClassFileAttachment60,1673
-class ImageThumbnail < FileAttachmentImageThumbnail67,1981
-class OrphanAttachment < ActiveRecord::BaseOrphanAttachment72,2122
-class MinimalAttachment < ActiveRecord::BaseMinimalAttachment78,2277
-  def filenamefilename82,2450
-  class ImageScienceAttachment < ActiveRecord::BaseImageScienceAttachment88,2499
-  class CoreImageAttachment < ActiveRecord::BaseCoreImageAttachment98,2826
-  class MiniMagickAttachment < ActiveRecord::BaseMiniMagickAttachment108,3144
-  class GD2Attachment < ActiveRecord::BaseGD2Attachment118,3466
-  class MiniMagickAttachment < ActiveRecord::BaseMiniMagickAttachment129,3766
-  class S3Attachment < ActiveRecord::BaseS3Attachment137,4046
-  class S3WithPathPrefixAttachment < S3AttachmentS3WithPathPrefixAttachment142,4256
-
-vendor/plugins/attachment_fu/test/backends/db_file_test.rb,168
-class DbFileTest < Test::Unit::TestCaseDbFileTest3,82
-  def test_should_call_after_attachment_saved(klass = Attachment)test_should_call_after_attachment_saved7,183
-
-vendor/plugins/attachment_fu/test/backends/remote/s3_test.rb,1159
-class S3Test < Test::Unit::TestCaseS3Test4,107
-  def self.test_S3?test_S35,143
-    def test_should_create_correct_bucket_name(klass = S3Attachment)test_should_create_correct_bucket_name13,368
-    def test_should_create_default_path_prefix(klass = S3Attachment)test_should_create_default_path_prefix21,697
-    def test_should_create_custom_path_prefix(klass = S3WithPathPrefixAttachment)test_should_create_custom_path_prefix29,1059
-    def test_should_create_valid_url(klass = S3Attachment)test_should_create_valid_url37,1445
-    def test_should_create_authenticated_url(klass = S3Attachment)test_should_create_authenticated_url45,1816
-    def test_should_save_attachment(klass = S3Attachment)test_should_save_attachment53,2179
-    def test_should_delete_attachment_from_s3_when_attachment_record_destroyed(klass = S3Attachment)test_should_delete_attachment_from_s3_when_attachment_record_destroyed66,2620
-      def http_response_for(url)http_response_for86,3288
-      def s3_protocols3_protocol91,3449
-      def s3_hostnames3_hostname95,3553
-      def s3_port_strings3_port_string99,3651
-    def test_flunk_s3test_flunk_s3103,3761
-
-vendor/plugins/attachment_fu/test/backends/file_system_test.rb,681
-class FileSystemTest < Test::Unit::TestCaseFileSystemTest3,82
-  def test_filesystem_size_for_file_attachment(klass = FileAttachment)test_filesystem_size_for_file_attachment7,191
-  def test_should_not_overwrite_file_attachment(klass = FileAttachment)test_should_not_overwrite_file_attachment17,558
-  def test_should_store_file_attachment_in_filesystem(klass = FileAttachment)test_should_store_file_attachment_in_filesystem35,1196
-  def test_should_delete_old_file_when_updating(klass = FileAttachment)test_should_delete_old_file_when_updating48,1663
-  def test_should_delete_old_file_when_renaming(klass = FileAttachment)test_should_delete_old_file_when_renaming65,2384
-
-vendor/plugins/attachment_fu/test/processors/core_image_test.rb,163
-class CoreImageTest < Test::Unit::TestCaseCoreImageTest3,82
-    def test_should_resize_imagetest_should_resize_image7,198
-    def test_flunktest_flunk27,871
-
-vendor/plugins/attachment_fu/test/processors/mini_magick_test.rb,165
-class MiniMagickTest < Test::Unit::TestCaseMiniMagickTest3,82
-    def test_should_resize_imagetest_should_resize_image7,207
-    def test_flunktest_flunk27,880
-
-vendor/plugins/attachment_fu/test/processors/rmagick_test.rb,2000
-class RmagickTest < Test::Unit::TestCaseRmagickTest3,82
-    def test_should_create_image_from_uploaded_filetest_should_create_image_from_uploaded_file7,190
-    def test_should_create_image_from_uploaded_file_with_custom_content_typetest_should_create_image_from_uploaded_file_with_custom_content_type21,726
-    def test_should_create_thumbnailtest_should_create_thumbnail35,1294
-    def test_should_create_thumbnail_with_geometry_stringtest_should_create_thumbnail_with_geometry_string52,2045
-    def test_should_resize_image(klass = ImageAttachment)test_should_resize_image69,2793
-    def test_should_resize_image_with_geometry(klass = ImageOrPdfAttachment)test_should_resize_image_with_geometry84,3415
-    def test_should_give_correct_thumbnail_filenames(klass = ImageWithThumbsFileAttachment)test_should_give_correct_thumbnail_filenames99,4070
-    def test_should_automatically_create_thumbnails(klass = ImageWithThumbsAttachment)test_should_automatically_create_thumbnails116,4892
-    def test_should_use_thumbnail_subclass(klass = ImageWithThumbsClassFileAttachment)test_should_use_thumbnail_subclass152,6511
-    def test_should_remove_old_thumbnail_files_when_updating(klass = ImageWithThumbsFileAttachment)test_should_remove_old_thumbnail_files_when_updating172,7523
-    def test_should_delete_file_when_in_file_system_when_attachment_record_destroyed(klass = ImageWithThumbsFileAttachment)test_should_delete_file_when_in_file_system_when_attachment_record_destroyed195,8543
-    def test_should_have_full_filename_method(klass = FileAttachment)test_should_have_full_filename_method206,9203
-    def test_should_overwrite_old_thumbnail_records_when_updating(klass = ImageWithThumbsAttachment)test_should_overwrite_old_thumbnail_records_when_updating214,9515
-    def test_should_overwrite_old_thumbnail_records_when_renaming(klass = ImageWithThumbsAttachment)test_should_overwrite_old_thumbnail_records_when_renaming235,10454
-    def test_flunktest_flunk251,11087
-
-vendor/plugins/attachment_fu/test/processors/gd2_test.rb,151
-class GD2Test < Test::Unit::TestCaseGD2Test3,82
-    def test_should_resize_imagetest_should_resize_image7,186
-    def test_flunktest_flunk27,842
-
-vendor/plugins/attachment_fu/test/processors/image_science_test.rb,169
-class ImageScienceTest < Test::Unit::TestCaseImageScienceTest3,82
-    def test_should_resize_imagetest_should_resize_image7,213
-    def test_flunktest_flunk27,889
-
-vendor/plugins/attachment_fu/init.rb,51
-  def make_tmpname(basename, n)make_tmpname5,146
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/backends/s3_backend.rb,1500
-module Technoweenie # :nodoc:Technoweenie1,0
-  module AttachmentFu # :nodoc:AttachmentFu2,30
-    module BackendsBackends3,62
-      module S3BackendS3Backend120,5799
-        class RequiredLibraryNotFoundError < StandardError; endRequiredLibraryNotFoundError121,5822
-        class ConfigFileNotFoundError < StandardError; endConfigFileNotFoundError122,5886
-        def self.included(base) #:nodoc:included124,5946
-        def self.protocolprotocol150,6900
-        def self.hostnamehostname154,7016
-        def self.port_stringport_string158,7131
-        module ClassMethodsClassMethods162,7310
-          def s3_protocols3_protocol163,7338
-          def s3_hostnames3_hostname167,7458
-          def s3_port_strings3_port_string171,7578
-        def filename=(value)filename=177,7787
-        def attachment_path_idattachment_path_id183,8024
-        def base_pathbase_path189,8253
-        def full_filename(thumbnail = nil)full_filename195,8480
-        def s3_url(thumbnail = nil)s3_url209,9220
-        def authenticated_s3_url(*args)authenticated_s3_url238,10683
-        def create_temp_filecreate_temp_file244,10942
-        def current_datacurrent_data248,11026
-        def s3_protocols3_protocol252,11116
-        def s3_hostnames3_hostname256,11228
-        def s3_port_strings3_port_string260,11342
-          def destroy_filedestroy_file266,11519
-          def rename_filerename_file270,11616
-          def save_to_storagesave_to_storage286,12046
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/backends/file_system_backend.rb,832
-module Technoweenie # :nodoc:Technoweenie2,17
-  module AttachmentFu # :nodoc:AttachmentFu3,47
-    module BackendsBackends4,79
-      module FileSystemBackendFileSystemBackend6,150
-        def self.included(base) #:nodoc:included7,181
-        def full_filename(thumbnail = nil)full_filename19,688
-        def base_pathbase_path25,1059
-        def attachment_path_idattachment_path_id30,1217
-        def partitioned_path(*args)partitioned_path36,1502
-        def public_filename(thumbnail = nil)public_filename42,1740
-        def filename=(value)filename=46,1881
-        def create_temp_filecreate_temp_file52,2124
-          def destroy_filedestroy_file58,2295
-          def rename_filerename_file68,2790
-          def save_to_storagesave_to_storage80,3233
-          def current_datacurrent_data91,3669
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/backends/db_file_backend.rb,432
-module Technoweenie # :nodoc:Technoweenie1,0
-  module AttachmentFu # :nodoc:AttachmentFu2,30
-    module BackendsBackends3,62
-      module DbFileBackendDbFileBackend5,124
-        def self.included(base) #:nodoc:included6,151
-        def create_temp_filecreate_temp_file12,459
-        def current_datacurrent_data17,601
-          def destroy_filedestroy_file23,757
-          def save_to_storagesave_to_storage28,895
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/rmagick_processor.rb,488
-module Technoweenie # :nodoc:Technoweenie2,18
-  module AttachmentFu # :nodoc:AttachmentFu3,48
-    module ProcessorsProcessors4,80
-      module RmagickProcessorRmagickProcessor5,102
-        def self.included(base)included6,132
-        module ClassMethodsClassMethods11,286
-          def with_image(file, &block)with_image13,396
-        def process_attachment_with_processingprocess_attachment_with_processing29,1041
-        def resize_image(img, size)resize_image40,1498
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/mini_magick_processor.rb,493
-module Technoweenie # :nodoc:Technoweenie2,22
-  module AttachmentFu # :nodoc:AttachmentFu3,52
-    module ProcessorsProcessors4,84
-      module MiniMagickProcessorMiniMagickProcessor5,106
-        def self.included(base)included6,139
-        module ClassMethodsClassMethods11,293
-          def with_image(file, &block)with_image13,406
-        def process_attachment_with_processingprocess_attachment_with_processing28,940
-        def resize_image(img, size)resize_image39,1399
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/core_image_processor.rb,495
-module Technoweenie # :nodoc:Technoweenie3,44
-  module AttachmentFu # :nodoc:AttachmentFu4,74
-    module ProcessorsProcessors5,106
-      module CoreImageProcessorCoreImageProcessor6,128
-        def self.included(base)included7,160
-        module ClassMethodsClassMethods12,322
-          def with_image(file, &block)with_image13,350
-          def process_attachment_with_processingprocess_attachment_with_processing19,497
-          def resize_image(img, size)resize_image30,996
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/image_science_processor.rb,500
-module Technoweenie # :nodoc:Technoweenie2,24
-  module AttachmentFu # :nodoc:AttachmentFu3,54
-    module ProcessorsProcessors4,86
-      module ImageScienceProcessorImageScienceProcessor5,108
-        def self.included(base)included6,143
-        module ClassMethodsClassMethods11,297
-          def with_image(file, &block)with_image13,413
-          def process_attachment_with_processingprocess_attachment_with_processing19,548
-          def resize_image(img, size)resize_image29,971
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/gd2_processor.rb,482
-module Technoweenie # :nodoc:Technoweenie3,33
-  module AttachmentFu # :nodoc:AttachmentFu4,63
-    module ProcessorsProcessors5,95
-      module Gd2ProcessorGd2Processor6,117
-        def self.included(base)included7,143
-        module ClassMethodsClassMethods12,305
-          def with_image(file, &block)with_image14,410
-          def process_attachment_with_processingprocess_attachment_with_processing21,562
-          def resize_image(img, size)resize_image32,989
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu.rb,3168
-module Technoweenie # :nodoc:Technoweenie1,0
-  module AttachmentFu # :nodoc:AttachmentFu2,30
-    class ThumbnailError < StandardError;  endThumbnailError9,425
-    class AttachmentError < StandardError; endAttachmentError10,472
-    module ActMethodsActMethods12,520
-      def has_attachment(options = {})has_attachment41,2998
-      def load_related_exception?(e) #:nodoc: implementation specificload_related_exception?107,6423
-    module ClassMethodsClassMethods120,6895
-      def validates_as_attachmentvalidates_as_attachment124,7044
-      def image?(content_type)image?130,7294
-      def self.extended(base)extended134,7381
-        def after_resize(&block)after_resize155,8220
-        def after_attachment_saved(&block)after_attachment_saved168,8698
-        def before_thumbnail_saved(&block)before_thumbnail_saved181,9175
-      def thumbnail_classthumbnail_class188,9449
-      def copy_to_temp_file(file, temp_base_name)copy_to_temp_file194,9769
-      def write_to_temp_file(data, temp_base_name)write_to_temp_file202,10078
-    module InstanceMethodsInstanceMethods211,10325
-      def self.included(base)included212,10352
-      def image?image?217,10607
-      def thumbnailable?thumbnailable?222,10820
-      def thumbnail_classthumbnail_class227,10993
-      def thumbnail_name_for(thumbnail = nil)thumbnail_name_for232,11152
-      def create_or_update_thumbnail(temp_file, file_name_suffix, *size)create_or_update_thumbnail244,11612
-      def content_type=(new_type)content_type=259,12320
-      def filename=(new_name)filename=264,12454
-      def image_sizeimage_size269,12648
-      def save_attachment?save_attachment?274,12819
-      def uploaded_data() nil; enduploaded_data279,12954
-      def uploaded_data=(file_data)uploaded_data=292,13484
-      def temp_pathtemp_path308,14296
-      def temp_pathstemp_paths314,14498
-      def temp_path=(value)temp_path=322,15025
-      def temp_datatemp_data328,15202
-      def temp_data=(data)temp_data=333,15376
-      def copy_to_temp_file(file)copy_to_temp_file338,15540
-      def write_to_temp_file(data)write_to_temp_file343,15713
-      def create_temp_file() endcreate_temp_file348,15939
-      def with_image(&block)with_image356,16219
-        def random_tempfile_filenamerandom_tempfile_filename362,16378
-        def sanitize_filename(filename)sanitize_filename366,16489
-        def set_size_from_temp_pathset_size_from_temp_path378,16947
-        def attachment_attributes_valid?attachment_attributes_valid?383,17157
-        def find_or_initialize_thumbnail(file_name_suffix)find_or_initialize_thumbnail391,17529
-        def process_attachmentprocess_attachment398,17886
-        def after_process_attachmentafter_process_attachment403,18113
-        def resize_image_or_thumbnail!(img)resize_image_or_thumbnail!417,18809
-          def callback_with_args(method, arg = self)callback_with_args429,19388
-          def run_callbacks(kind, options = {}, &block)run_callbacks441,19730
-          def callback_with_args(method, arg = self)callback_with_args447,19982
-        def destroy_thumbnailsdestroy_thumbnails460,20364
-
-vendor/plugins/attachment_fu/lib/geometry.rb,305
-class GeometryGeometry4,229
-  def initialize(width=nil, height=nil, x=nil, y=nil, flag=nil)initialize15,526
-  def self.from_s(str)from_s30,1091
-  def to_sto_s41,1395
-  def new_dimensions_for(orig_width, orig_height)new_dimensions_for52,1807
-class ArrayArray83,2918
-  def /(geometry)/87,3073
-
-vendor/plugins/attachment_fu/install.rb,0
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/processor.rb,627
-module RedArtisanRedArtisan58,2445
-  module CoreImageCoreImage59,2463
-    class ProcessorProcessor60,2482
-      def initialize(original)initialize62,2505
-      def render(&block)render70,2702
-        def create_core_image_context(width, height)create_core_image_context79,2977
-        def vector(x, y, w, h)vector86,3485
-module OSXOSX93,3601
-  class CIImageCIImage94,3612
-    def method_missing_with_filter_processing(sym, *args, &block)method_missing_with_filter_processing97,3656
-    def save(target, format = OSX::NSJPEGFileType, properties = nil)save111,4211
-    def self.from(filepath)from117,4486
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/perspective.rb,333
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module PerspectivePerspective4,56
-        def perspective(top_left, top_right, bottom_left, bottom_right)perspective6,90
-        def perspective_tiled(top_left, top_right, bottom_left, bottom_right)perspective_tiled14,511
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/effects.rb,320
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module EffectsEffects4,56
-        def spotlight(position, points_at, brightness, concentration, color)spotlight6,86
-        def edges(intensity = 1.00)edges15,582
-          def vector3(x, y, w)vector325,878
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/watermark.rb,221
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module WatermarkWatermark4,56
-        def watermark(watermark_image, tile = false, strength = 0.1)watermark6,88
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/color.rb,246
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module ColorColor4,56
-        def greyscale(color = nil, intensity = 1.00)greyscale6,84
-        def sepia(intensity = 1.00)sepia16,503
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/scale.rb,311
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module ScaleScale4,56
-        def resize(width, height)resize6,84
-        def thumbnail(width, height)thumbnail20,649
-        def fit(size)fit31,983
-          def scale(width, height)scale39,1308
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/quality.rb,274
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module QualityQuality4,56
-        def reduce_noise(level = 0.02, sharpness = 0.4)reduce_noise6,86
-        def adjust_exposure(input_ev = 0.5)adjust_exposure14,430
-
-app/helpers/deposits_helper.rb,41
-module DepositsHelperDepositsHelper1,0
-
-app/helpers/admin_helper.rb,35
-module AdminHelperAdminHelper1,0
-
-app/helpers/orders_helper.rb,37
-module OrdersHelperOrdersHelper1,0
-
-app/helpers/application_helper.rb,105
-module ApplicationHelperApplicationHelper2,86
-  def image_for(product, size = :medium)image_for3,111
-
-app/helpers/store_helper.rb,152
-module StoreHelperStoreHelper1,0
-  def hidden_div_if(condition, attributes = {}, &block)hidden_div_if2,19
-  def letter_optionsletter_options9,196
-
-app/helpers/users_helper.rb,35
-module UsersHelperUsersHelper1,0
-
-app/helpers/line_items_helper.rb,43
-module LineItemsHelperLineItemsHelper1,0
-
-app/helpers/info_helper.rb,33
-module InfoHelperInfoHelper1,0
-
-app/helpers/products_helper.rb,41
-module ProductsHelperProductsHelper1,0
-
-app/models/sell_price.rb,38
-class SellPrice < PriceSellPrice1,0
-
-app/models/price.rb,102
-class Price < ActiveRecord::BasePrice1,0
-  def must_be_at_least_a_centmust_be_at_least_a_cent6,93
-
-app/models/administrator.rb,53
-class Administrator < AbstractUserAdministrator1,0
-
-app/models/buy_price.rb,36
-class BuyPrice < PriceBuyPrice1,0
-
-app/models/deposit.rb,84
-class Deposit < ActiveRecord::BaseDeposit1,0
-  def user_id=(userid)user_id=6,92
-
-app/models/cart_item.rb,170
-class CartItemCartItem1,0
-  def initialize(product)initialize4,50
-  def increment_quantityincrement_quantity9,124
-  def titletitle13,175
-  def priceprice17,215
-
-app/models/order.rb,150
-class Order < ActiveRecord::BaseOrder1,0
-  def add_line_items_from_cart(cart)add_line_items_from_cart8,177
-  def total_amounttotal_amount15,323
-
-app/models/line_item.rb,234
-class LineItem < ActiveRecord::BaseLineItem1,0
-  def self.from_cart_item(cart_item)from_cart_item7,117
-  def after_saveafter_save15,295
-  def destroydestroy21,396
-  def product_has_enough_stockproduct_has_enough_stock29,509
-
-app/models/product.rb,238
-class Product < ActiveRecord::BaseProduct1,0
-  def stock_must_be_positivestock_must_be_positive20,697
-  def image=(file)image=25,820
-  def reduce_stock(amount)reduce_stock31,945
-  def increase_stock(amount)increase_stock35,1016
-
-app/models/product_image.rb,196
-class ProductImage < ActiveRecord::BaseProductImage1,0
-  def full_filename(thumbnail = nil)full_filename17,396
-  def thumbnail_name_for(thumbnail = nil, asset = nil)thumbnail_name_for27,800
-
-app/models/user.rb,127
-class User < AbstractUserUser1,0
-  def actual_account_stateactual_account_state5,67
-  def buyed_amountbuyed_amount15,301
-
-app/models/cart.rb,171
-class CartCart1,0
-  def initializeinitialize5,36
-  def add_product(product)add_product9,76
-  def total_pricetotal_price20,338
-  def total_itemstotal_items24,400
-
-app/models/abstract_user.rb,397
-class AbstractUser < ActiveRecord::BaseAbstractUser3,23
-  def passwordpassword14,274
-  def password=(pwd)password=18,310
-  def self.authenticate(name, password)authenticate25,480
-  def password_non_blankpassword_non_blank38,748
-  def self.encrypted_password(password, salt)encrypted_password42,853
-  def create_new_saltcreate_new_salt47,997
-  def after_destroyafter_destroy51,1074
-
-app/controllers/deposits_controller.rb,187
-class DepositsController < ApplicationControllerDepositsController1,0
-  def indexindex4,89
-  def newnew17,373
-  def createcreate29,664
-  def amount_by_useramount_by_user44,1160
-
-app/controllers/info_controller.rb,165
-class InfoController < ApplicationControllerInfoController1,0
-  def who_boughtwho_bought3,46
-  def top_buyerstop_buyers14,298
-  def authorizeauthorize21,414
-
-app/controllers/administrators_controller.rb,260
-class AdministratorsController < ApplicationControllerAdministratorsController1,0
-  def indexindex4,107
-  def showshow15,354
-  def newnew26,592
-  def editedit36,784
-  def createcreate42,901
-  def updateupdate59,1461
-  def destroydestroy73,1946
-
-app/controllers/orders_controller.rb,144
-class OrdersController < ApplicationControllerOrdersController1,0
-  def indexindex4,83
-  def showshow16,352
-  def destroydestroy77,1856
-
-app/controllers/application_controller.rb,198
-class ApplicationController < ActionController::BaseApplicationController4,154
-  def authorize_as_userauthorize_as_user16,544
-  def authorizeauthorize23,730
-  def set_localeset_locale30,918
-
-app/controllers/admin_controller.rb,141
-class AdminController < ApplicationControllerAdminController1,0
-  def loginlogin2,46
-  def logoutlogout20,562
-  def indexindex27,733
-
-app/controllers/products_controller.rb,247
-class ProductsController < ApplicationControllerProductsController1,0
-  def indexindex4,89
-  def showshow15,298
-  def newnew26,521
-  def editedit37,743
-  def createcreate43,844
-  def updateupdate60,1369
-  def destroydestroy77,1869
-
-app/controllers/line_items_controller.rb,249
-class LineItemsController < ApplicationControllerLineItemsController1,0
-  def indexindex4,94
-  def showshow15,312
-  def newnew26,544
-  def editedit36,735
-  def createcreate42,843
-  def updateupdate59,1388
-  def destroydestroy76,1904
-
-app/controllers/store_controller.rb,371
-class StoreController < ApplicationControllerStoreController1,0
-  def indexindex4,98
-  def add_to_cartadd_to_cart12,350
-  def empty_cartempty_cart25,738
-  def save_ordersave_order39,976
-  def amount_for_useramount_for_user58,1503
-  def authorizeauthorize70,1763
-  def find_cartfind_cart75,1797
-  def redirect_to_index(msg = nil)redirect_to_index79,1862
-
-app/controllers/users_controller.rb,241
-class UsersController < ApplicationControllerUsersController1,0
-  def indexindex4,80
-  def showshow15,281
-  def newnew26,489
-  def editedit36,661
-  def createcreate43,792
-  def updateupdate60,1310
-  def destroydestroy74,1764
-
-vendor/plugins/attachment_fu/test/basic_test.rb,918
-class BasicTest < Test::Unit::TestCaseBasicTest3,76
-  def test_should_set_default_min_sizetest_should_set_default_min_size4,115
-  def test_should_set_default_max_sizetest_should_set_default_max_size8,224
-  def test_should_set_default_sizetest_should_set_default_size12,342
-  def test_should_set_default_thumbnails_optiontest_should_set_default_thumbnails_option16,457
-  def test_should_set_default_thumbnail_classtest_should_set_default_thumbnail_class20,582
-  def test_should_normalize_content_types_to_arraytest_should_normalize_content_types_to_array24,714
-  def test_should_sanitize_content_typetest_should_sanitize_content_type31,1246
-  def test_should_sanitize_filenamestest_should_sanitize_filenames36,1402
-  def test_should_convert_thumbnail_nametest_should_convert_thumbnail_name47,1750
-  def test_should_require_valid_thumbnails_optiontest_should_require_valid_thumbnails_option58,2286
-
-vendor/plugins/attachment_fu/test/validation_test.rb,378
-class ValidationTest < Test::Unit::TestCaseValidationTest3,76
-  def test_should_invalidate_big_filestest_should_invalidate_big_files4,120
-  def test_should_invalidate_small_filestest_should_invalidate_small_files18,533
-  def test_should_validate_content_typetest_should_validate_content_type32,954
-  def test_should_require_filenametest_should_require_filename46,1354
-
-vendor/plugins/attachment_fu/test/extra_attachment_test.rb,693
-class OrphanAttachmentTest < Test::Unit::TestCaseOrphanAttachmentTest3,76
-  def test_should_create_image_from_uploaded_filetest_should_create_image_from_uploaded_file7,195
-  def test_should_create_file_from_uploaded_filetest_should_create_file_from_uploaded_file17,526
-  def test_should_create_image_from_uploaded_file_with_custom_content_typetest_should_create_image_from_uploaded_file_with_custom_content_type27,854
-  def test_should_create_thumbnailtest_should_create_thumbnail38,1280
-  def test_should_create_thumbnail_with_geometry_stringtest_should_create_thumbnail_with_geometry_string46,1551
-class MinimalAttachmentTest < OrphanAttachmentTestMinimalAttachmentTest55,1843
-
-vendor/plugins/attachment_fu/test/test_helper.rb,953
-class Test::Unit::TestCase #:nodoc:Test41,1114
-  def create_fixtures(*table_names)create_fixtures43,1190
-  def setupsetup51,1438
-  def teardownteardown57,1668
-  def self.attachment_model(klass = nil)attachment_model64,1837
-  def self.test_against_class(test_method, klass, subclass = false)test_against_class69,1947
-  def self.test_against_subclass(test_method, klass)test_against_subclass77,2199
-    def upload_file(options = {})upload_file82,2319
-    def use_temp_file(fixture_filename)use_temp_file90,2603
-    def assert_created(num = 1)assert_created99,2959
-    def assert_not_createdassert_not_created111,3267
-    def should_reject_by_size_with(klass)should_reject_by_size_with115,3341
-    def assert_difference(object, method = nil, difference = 1)assert_difference125,3683
-    def assert_no_difference(object, method, &block)assert_no_difference131,3881
-    def attachment_model(klass = nil)attachment_model135,3997
-
-vendor/plugins/attachment_fu/test/base_attachment_tests.rb,514
-module BaseAttachmentTestsBaseAttachmentTests1,0
-  def test_should_create_file_from_uploaded_filetest_should_create_file_from_uploaded_file2,27
-  def test_reassign_attribute_datatest_reassign_attribute_data15,473
-  def test_no_reassign_attribute_data_on_niltest_no_reassign_attribute_data_on_nil29,890
-  def test_should_overwrite_old_contents_when_updatingtest_should_overwrite_old_contents_when_updating40,1203
-  def test_should_save_without_updating_filetest_should_save_without_updating_file51,1576
-
-vendor/plugins/attachment_fu/test/schema.rb,0
-
-vendor/plugins/attachment_fu/test/geometry_test.rb,1165
-class GeometryTest < Test::Unit::TestCaseGeometryTest4,140
-  def test_should_resizetest_should_resize5,182
-  def test_should_resize_no_widthtest_should_resize_no_width12,331
-  def test_should_resize_no_heighttest_should_resize_no_height19,480
-  def test_should_resize_with_percenttest_should_resize_with_percent26,628
-  def test_should_resize_with_percent_and_no_widthtest_should_resize_with_percent_and_no_width33,792
-  def test_should_resize_with_percent_and_no_heighttest_should_resize_with_percent_and_no_height40,960
-  def test_should_resize_with_lesstest_should_resize_with_less47,1126
-  def test_should_resize_with_less_and_no_widthtest_should_resize_with_less_and_no_width56,1349
-  def test_should_resize_with_less_and_no_heighttest_should_resize_with_less_and_no_height63,1515
-  def test_should_resize_with_greatertest_should_resize_with_greater70,1678
-  def test_should_resize_with_greater_and_no_widthtest_should_resize_with_greater_and_no_width79,1902
-  def test_should_resize_with_greater_and_no_heighttest_should_resize_with_greater_and_no_height86,2070
-    def assert_geometry(width, height, values)assert_geometry94,2246
-
-vendor/plugins/attachment_fu/test/fixtures/attachment.rb,1574
-class Attachment < ActiveRecord::BaseAttachment1,0
-class SmallAttachment < AttachmentSmallAttachment11,210
-class BigAttachment < AttachmentBigAttachment15,291
-class PdfAttachment < AttachmentPdfAttachment19,379
-class DocAttachment < AttachmentDocAttachment23,457
-class ImageAttachment < AttachmentImageAttachment27,545
-class ImageOrPdfAttachment < AttachmentImageOrPdfAttachment31,649
-class ImageWithThumbsAttachment < AttachmentImageWithThumbsAttachment35,765
-class FileAttachment < ActiveRecord::BaseFileAttachment42,1010
-class ImageFileAttachment < FileAttachmentImageFileAttachment47,1182
-class ImageWithThumbsFileAttachment < FileAttachmentImageWithThumbsFileAttachment52,1357
-class ImageWithThumbsClassFileAttachment < FileAttachmentImageWithThumbsClassFileAttachment60,1673
-class ImageThumbnail < FileAttachmentImageThumbnail67,1981
-class OrphanAttachment < ActiveRecord::BaseOrphanAttachment72,2122
-class MinimalAttachment < ActiveRecord::BaseMinimalAttachment78,2277
-  def filenamefilename82,2450
-  class ImageScienceAttachment < ActiveRecord::BaseImageScienceAttachment88,2499
-  class CoreImageAttachment < ActiveRecord::BaseCoreImageAttachment98,2826
-  class MiniMagickAttachment < ActiveRecord::BaseMiniMagickAttachment108,3144
-  class GD2Attachment < ActiveRecord::BaseGD2Attachment118,3466
-  class MiniMagickAttachment < ActiveRecord::BaseMiniMagickAttachment129,3766
-  class S3Attachment < ActiveRecord::BaseS3Attachment137,4046
-  class S3WithPathPrefixAttachment < S3AttachmentS3WithPathPrefixAttachment142,4256
-
-vendor/plugins/attachment_fu/test/backends/db_file_test.rb,168
-class DbFileTest < Test::Unit::TestCaseDbFileTest3,82
-  def test_should_call_after_attachment_saved(klass = Attachment)test_should_call_after_attachment_saved7,183
-
-vendor/plugins/attachment_fu/test/backends/remote/s3_test.rb,1159
-class S3Test < Test::Unit::TestCaseS3Test4,107
-  def self.test_S3?test_S35,143
-    def test_should_create_correct_bucket_name(klass = S3Attachment)test_should_create_correct_bucket_name13,368
-    def test_should_create_default_path_prefix(klass = S3Attachment)test_should_create_default_path_prefix21,697
-    def test_should_create_custom_path_prefix(klass = S3WithPathPrefixAttachment)test_should_create_custom_path_prefix29,1059
-    def test_should_create_valid_url(klass = S3Attachment)test_should_create_valid_url37,1445
-    def test_should_create_authenticated_url(klass = S3Attachment)test_should_create_authenticated_url45,1816
-    def test_should_save_attachment(klass = S3Attachment)test_should_save_attachment53,2179
-    def test_should_delete_attachment_from_s3_when_attachment_record_destroyed(klass = S3Attachment)test_should_delete_attachment_from_s3_when_attachment_record_destroyed66,2620
-      def http_response_for(url)http_response_for86,3288
-      def s3_protocols3_protocol91,3449
-      def s3_hostnames3_hostname95,3553
-      def s3_port_strings3_port_string99,3651
-    def test_flunk_s3test_flunk_s3103,3761
-
-vendor/plugins/attachment_fu/test/backends/file_system_test.rb,681
-class FileSystemTest < Test::Unit::TestCaseFileSystemTest3,82
-  def test_filesystem_size_for_file_attachment(klass = FileAttachment)test_filesystem_size_for_file_attachment7,191
-  def test_should_not_overwrite_file_attachment(klass = FileAttachment)test_should_not_overwrite_file_attachment17,558
-  def test_should_store_file_attachment_in_filesystem(klass = FileAttachment)test_should_store_file_attachment_in_filesystem35,1196
-  def test_should_delete_old_file_when_updating(klass = FileAttachment)test_should_delete_old_file_when_updating48,1663
-  def test_should_delete_old_file_when_renaming(klass = FileAttachment)test_should_delete_old_file_when_renaming65,2384
-
-vendor/plugins/attachment_fu/test/processors/core_image_test.rb,163
-class CoreImageTest < Test::Unit::TestCaseCoreImageTest3,82
-    def test_should_resize_imagetest_should_resize_image7,198
-    def test_flunktest_flunk27,871
-
-vendor/plugins/attachment_fu/test/processors/mini_magick_test.rb,165
-class MiniMagickTest < Test::Unit::TestCaseMiniMagickTest3,82
-    def test_should_resize_imagetest_should_resize_image7,207
-    def test_flunktest_flunk27,880
-
-vendor/plugins/attachment_fu/test/processors/rmagick_test.rb,2000
-class RmagickTest < Test::Unit::TestCaseRmagickTest3,82
-    def test_should_create_image_from_uploaded_filetest_should_create_image_from_uploaded_file7,190
-    def test_should_create_image_from_uploaded_file_with_custom_content_typetest_should_create_image_from_uploaded_file_with_custom_content_type21,726
-    def test_should_create_thumbnailtest_should_create_thumbnail35,1294
-    def test_should_create_thumbnail_with_geometry_stringtest_should_create_thumbnail_with_geometry_string52,2045
-    def test_should_resize_image(klass = ImageAttachment)test_should_resize_image69,2793
-    def test_should_resize_image_with_geometry(klass = ImageOrPdfAttachment)test_should_resize_image_with_geometry84,3415
-    def test_should_give_correct_thumbnail_filenames(klass = ImageWithThumbsFileAttachment)test_should_give_correct_thumbnail_filenames99,4070
-    def test_should_automatically_create_thumbnails(klass = ImageWithThumbsAttachment)test_should_automatically_create_thumbnails116,4892
-    def test_should_use_thumbnail_subclass(klass = ImageWithThumbsClassFileAttachment)test_should_use_thumbnail_subclass152,6511
-    def test_should_remove_old_thumbnail_files_when_updating(klass = ImageWithThumbsFileAttachment)test_should_remove_old_thumbnail_files_when_updating172,7523
-    def test_should_delete_file_when_in_file_system_when_attachment_record_destroyed(klass = ImageWithThumbsFileAttachment)test_should_delete_file_when_in_file_system_when_attachment_record_destroyed195,8543
-    def test_should_have_full_filename_method(klass = FileAttachment)test_should_have_full_filename_method206,9203
-    def test_should_overwrite_old_thumbnail_records_when_updating(klass = ImageWithThumbsAttachment)test_should_overwrite_old_thumbnail_records_when_updating214,9515
-    def test_should_overwrite_old_thumbnail_records_when_renaming(klass = ImageWithThumbsAttachment)test_should_overwrite_old_thumbnail_records_when_renaming235,10454
-    def test_flunktest_flunk251,11087
-
-vendor/plugins/attachment_fu/test/processors/gd2_test.rb,151
-class GD2Test < Test::Unit::TestCaseGD2Test3,82
-    def test_should_resize_imagetest_should_resize_image7,186
-    def test_flunktest_flunk27,842
-
-vendor/plugins/attachment_fu/test/processors/image_science_test.rb,169
-class ImageScienceTest < Test::Unit::TestCaseImageScienceTest3,82
-    def test_should_resize_imagetest_should_resize_image7,213
-    def test_flunktest_flunk27,889
-
-vendor/plugins/attachment_fu/init.rb,51
-  def make_tmpname(basename, n)make_tmpname5,146
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/backends/s3_backend.rb,1500
-module Technoweenie # :nodoc:Technoweenie1,0
-  module AttachmentFu # :nodoc:AttachmentFu2,30
-    module BackendsBackends3,62
-      module S3BackendS3Backend120,5799
-        class RequiredLibraryNotFoundError < StandardError; endRequiredLibraryNotFoundError121,5822
-        class ConfigFileNotFoundError < StandardError; endConfigFileNotFoundError122,5886
-        def self.included(base) #:nodoc:included124,5946
-        def self.protocolprotocol150,6900
-        def self.hostnamehostname154,7016
-        def self.port_stringport_string158,7131
-        module ClassMethodsClassMethods162,7310
-          def s3_protocols3_protocol163,7338
-          def s3_hostnames3_hostname167,7458
-          def s3_port_strings3_port_string171,7578
-        def filename=(value)filename=177,7787
-        def attachment_path_idattachment_path_id183,8024
-        def base_pathbase_path189,8253
-        def full_filename(thumbnail = nil)full_filename195,8480
-        def s3_url(thumbnail = nil)s3_url209,9220
-        def authenticated_s3_url(*args)authenticated_s3_url238,10683
-        def create_temp_filecreate_temp_file244,10942
-        def current_datacurrent_data248,11026
-        def s3_protocols3_protocol252,11116
-        def s3_hostnames3_hostname256,11228
-        def s3_port_strings3_port_string260,11342
-          def destroy_filedestroy_file266,11519
-          def rename_filerename_file270,11616
-          def save_to_storagesave_to_storage286,12046
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/backends/file_system_backend.rb,832
-module Technoweenie # :nodoc:Technoweenie2,17
-  module AttachmentFu # :nodoc:AttachmentFu3,47
-    module BackendsBackends4,79
-      module FileSystemBackendFileSystemBackend6,150
-        def self.included(base) #:nodoc:included7,181
-        def full_filename(thumbnail = nil)full_filename19,688
-        def base_pathbase_path25,1059
-        def attachment_path_idattachment_path_id30,1217
-        def partitioned_path(*args)partitioned_path36,1502
-        def public_filename(thumbnail = nil)public_filename42,1740
-        def filename=(value)filename=46,1881
-        def create_temp_filecreate_temp_file52,2124
-          def destroy_filedestroy_file58,2295
-          def rename_filerename_file68,2790
-          def save_to_storagesave_to_storage80,3233
-          def current_datacurrent_data91,3669
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/backends/db_file_backend.rb,432
-module Technoweenie # :nodoc:Technoweenie1,0
-  module AttachmentFu # :nodoc:AttachmentFu2,30
-    module BackendsBackends3,62
-      module DbFileBackendDbFileBackend5,124
-        def self.included(base) #:nodoc:included6,151
-        def create_temp_filecreate_temp_file12,459
-        def current_datacurrent_data17,601
-          def destroy_filedestroy_file23,757
-          def save_to_storagesave_to_storage28,895
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/rmagick_processor.rb,488
-module Technoweenie # :nodoc:Technoweenie2,18
-  module AttachmentFu # :nodoc:AttachmentFu3,48
-    module ProcessorsProcessors4,80
-      module RmagickProcessorRmagickProcessor5,102
-        def self.included(base)included6,132
-        module ClassMethodsClassMethods11,286
-          def with_image(file, &block)with_image13,396
-        def process_attachment_with_processingprocess_attachment_with_processing29,1041
-        def resize_image(img, size)resize_image40,1498
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/mini_magick_processor.rb,493
-module Technoweenie # :nodoc:Technoweenie2,22
-  module AttachmentFu # :nodoc:AttachmentFu3,52
-    module ProcessorsProcessors4,84
-      module MiniMagickProcessorMiniMagickProcessor5,106
-        def self.included(base)included6,139
-        module ClassMethodsClassMethods11,293
-          def with_image(file, &block)with_image13,406
-        def process_attachment_with_processingprocess_attachment_with_processing28,940
-        def resize_image(img, size)resize_image39,1399
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/core_image_processor.rb,495
-module Technoweenie # :nodoc:Technoweenie3,44
-  module AttachmentFu # :nodoc:AttachmentFu4,74
-    module ProcessorsProcessors5,106
-      module CoreImageProcessorCoreImageProcessor6,128
-        def self.included(base)included7,160
-        module ClassMethodsClassMethods12,322
-          def with_image(file, &block)with_image13,350
-          def process_attachment_with_processingprocess_attachment_with_processing19,497
-          def resize_image(img, size)resize_image30,996
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/image_science_processor.rb,500
-module Technoweenie # :nodoc:Technoweenie2,24
-  module AttachmentFu # :nodoc:AttachmentFu3,54
-    module ProcessorsProcessors4,86
-      module ImageScienceProcessorImageScienceProcessor5,108
-        def self.included(base)included6,143
-        module ClassMethodsClassMethods11,297
-          def with_image(file, &block)with_image13,413
-          def process_attachment_with_processingprocess_attachment_with_processing19,548
-          def resize_image(img, size)resize_image29,971
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/gd2_processor.rb,482
-module Technoweenie # :nodoc:Technoweenie3,33
-  module AttachmentFu # :nodoc:AttachmentFu4,63
-    module ProcessorsProcessors5,95
-      module Gd2ProcessorGd2Processor6,117
-        def self.included(base)included7,143
-        module ClassMethodsClassMethods12,305
-          def with_image(file, &block)with_image14,410
-          def process_attachment_with_processingprocess_attachment_with_processing21,562
-          def resize_image(img, size)resize_image32,989
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu.rb,3168
-module Technoweenie # :nodoc:Technoweenie1,0
-  module AttachmentFu # :nodoc:AttachmentFu2,30
-    class ThumbnailError < StandardError;  endThumbnailError9,425
-    class AttachmentError < StandardError; endAttachmentError10,472
-    module ActMethodsActMethods12,520
-      def has_attachment(options = {})has_attachment41,2998
-      def load_related_exception?(e) #:nodoc: implementation specificload_related_exception?107,6423
-    module ClassMethodsClassMethods120,6895
-      def validates_as_attachmentvalidates_as_attachment124,7044
-      def image?(content_type)image?130,7294
-      def self.extended(base)extended134,7381
-        def after_resize(&block)after_resize155,8220
-        def after_attachment_saved(&block)after_attachment_saved168,8698
-        def before_thumbnail_saved(&block)before_thumbnail_saved181,9175
-      def thumbnail_classthumbnail_class188,9449
-      def copy_to_temp_file(file, temp_base_name)copy_to_temp_file194,9769
-      def write_to_temp_file(data, temp_base_name)write_to_temp_file202,10078
-    module InstanceMethodsInstanceMethods211,10325
-      def self.included(base)included212,10352
-      def image?image?217,10607
-      def thumbnailable?thumbnailable?222,10820
-      def thumbnail_classthumbnail_class227,10993
-      def thumbnail_name_for(thumbnail = nil)thumbnail_name_for232,11152
-      def create_or_update_thumbnail(temp_file, file_name_suffix, *size)create_or_update_thumbnail244,11612
-      def content_type=(new_type)content_type=259,12320
-      def filename=(new_name)filename=264,12454
-      def image_sizeimage_size269,12648
-      def save_attachment?save_attachment?274,12819
-      def uploaded_data() nil; enduploaded_data279,12954
-      def uploaded_data=(file_data)uploaded_data=292,13484
-      def temp_pathtemp_path308,14296
-      def temp_pathstemp_paths314,14498
-      def temp_path=(value)temp_path=322,15025
-      def temp_datatemp_data328,15202
-      def temp_data=(data)temp_data=333,15376
-      def copy_to_temp_file(file)copy_to_temp_file338,15540
-      def write_to_temp_file(data)write_to_temp_file343,15713
-      def create_temp_file() endcreate_temp_file348,15939
-      def with_image(&block)with_image356,16219
-        def random_tempfile_filenamerandom_tempfile_filename362,16378
-        def sanitize_filename(filename)sanitize_filename366,16489
-        def set_size_from_temp_pathset_size_from_temp_path378,16947
-        def attachment_attributes_valid?attachment_attributes_valid?383,17157
-        def find_or_initialize_thumbnail(file_name_suffix)find_or_initialize_thumbnail391,17529
-        def process_attachmentprocess_attachment398,17886
-        def after_process_attachmentafter_process_attachment403,18113
-        def resize_image_or_thumbnail!(img)resize_image_or_thumbnail!417,18809
-          def callback_with_args(method, arg = self)callback_with_args429,19388
-          def run_callbacks(kind, options = {}, &block)run_callbacks441,19730
-          def callback_with_args(method, arg = self)callback_with_args447,19982
-        def destroy_thumbnailsdestroy_thumbnails460,20364
-
-vendor/plugins/attachment_fu/lib/geometry.rb,305
-class GeometryGeometry4,229
-  def initialize(width=nil, height=nil, x=nil, y=nil, flag=nil)initialize15,526
-  def self.from_s(str)from_s30,1091
-  def to_sto_s41,1395
-  def new_dimensions_for(orig_width, orig_height)new_dimensions_for52,1807
-class ArrayArray83,2918
-  def /(geometry)/87,3073
-
-vendor/plugins/attachment_fu/install.rb,0
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/processor.rb,627
-module RedArtisanRedArtisan58,2445
-  module CoreImageCoreImage59,2463
-    class ProcessorProcessor60,2482
-      def initialize(original)initialize62,2505
-      def render(&block)render70,2702
-        def create_core_image_context(width, height)create_core_image_context79,2977
-        def vector(x, y, w, h)vector86,3485
-module OSXOSX93,3601
-  class CIImageCIImage94,3612
-    def method_missing_with_filter_processing(sym, *args, &block)method_missing_with_filter_processing97,3656
-    def save(target, format = OSX::NSJPEGFileType, properties = nil)save111,4211
-    def self.from(filepath)from117,4486
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/perspective.rb,333
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module PerspectivePerspective4,56
-        def perspective(top_left, top_right, bottom_left, bottom_right)perspective6,90
-        def perspective_tiled(top_left, top_right, bottom_left, bottom_right)perspective_tiled14,511
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/effects.rb,320
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module EffectsEffects4,56
-        def spotlight(position, points_at, brightness, concentration, color)spotlight6,86
-        def edges(intensity = 1.00)edges15,582
-          def vector3(x, y, w)vector325,878
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/watermark.rb,221
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module WatermarkWatermark4,56
-        def watermark(watermark_image, tile = false, strength = 0.1)watermark6,88
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/color.rb,246
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module ColorColor4,56
-        def greyscale(color = nil, intensity = 1.00)greyscale6,84
-        def sepia(intensity = 1.00)sepia16,503
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/scale.rb,311
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module ScaleScale4,56
-        def resize(width, height)resize6,84
-        def thumbnail(width, height)thumbnail20,649
-        def fit(size)fit31,983
-          def scale(width, height)scale39,1308
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/quality.rb,274
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module QualityQuality4,56
-        def reduce_noise(level = 0.02, sharpness = 0.4)reduce_noise6,86
-        def adjust_exposure(input_ev = 0.5)adjust_exposure14,430
-
-app/helpers/prices_helper.rb,37
-module PricesHelperPricesHelper1,0
-
-app/helpers/deposits_helper.rb,41
-module DepositsHelperDepositsHelper1,0
-
-app/helpers/admin_helper.rb,35
-module AdminHelperAdminHelper1,0
-
-app/helpers/orders_helper.rb,37
-module OrdersHelperOrdersHelper1,0
-
-app/helpers/application_helper.rb,105
-module ApplicationHelperApplicationHelper2,86
-  def image_for(product, size = :medium)image_for3,111
-
-app/helpers/news_helper.rb,33
-module NewsHelperNewsHelper1,0
-
-app/helpers/store_helper.rb,152
-module StoreHelperStoreHelper1,0
-  def hidden_div_if(condition, attributes = {}, &block)hidden_div_if2,19
-  def letter_optionsletter_options9,196
-
-app/helpers/users_helper.rb,35
-module UsersHelperUsersHelper1,0
-
-app/helpers/line_items_helper.rb,43
-module LineItemsHelperLineItemsHelper1,0
-
-app/helpers/info_helper.rb,33
-module InfoHelperInfoHelper1,0
-
-app/helpers/products_helper.rb,236
-module ProductsHelperProductsHelper1,0
-  def link_to_sell_prices_popup(product_id)link_to_sell_prices_popup2,22
-  def link_to_buy_prices_popup(product_id)link_to_buy_prices_popup6,139
-  def link_to_popup(url)link_to_popup10,255
-
-app/helpers/prototype_window_class_helper.rb,731
-class JsCode < String # for JavaScript Code Handling purposeJsCode20,753
-module PrototypeWindowClassHelperPrototypeWindowClassHelper24,820
-  def params_for_javascript(params) #options_for_javascript doesn't works fineparams_for_javascript28,875
-  def content_for_window( content ) #convertscontent_for_window40,1276
-  def link_to_prototype_dialog( name, content, dialog_kind = 'alert', options = {} , html_options = {} )link_to_prototype_dialog52,1481
-  def link_to_prototype_confirm_url( name, content, ok_url, cancel_url = nil , options = {} , html_options = {} )link_to_prototype_confirm_url70,2350
-  def link_to_prototype_window( name, window_id, options = {} , html_options = {} )link_to_prototype_window91,3265
-
-app/models/sell_price.rb,38
-class SellPrice < PriceSellPrice1,0
-
-app/models/price.rb,102
-class Price < ActiveRecord::BasePrice1,0
-  def must_be_at_least_a_centmust_be_at_least_a_cent5,92
-
-app/models/administrator.rb,53
-class Administrator < AbstractUserAdministrator1,0
-
-app/models/buy_price.rb,36
-class BuyPrice < PriceBuyPrice1,0
-
-app/models/deposit.rb,84
-class Deposit < ActiveRecord::BaseDeposit1,0
-  def user_id=(userid)user_id=6,92
-
-app/models/cart_item.rb,170
-class CartItemCartItem1,0
-  def initialize(product)initialize4,50
-  def increment_quantityincrement_quantity9,124
-  def titletitle13,175
-  def priceprice17,215
-
-app/models/order.rb,150
-class Order < ActiveRecord::BaseOrder1,0
-  def add_line_items_from_cart(cart)add_line_items_from_cart8,177
-  def total_amounttotal_amount15,323
-
-app/models/line_item.rb,234
-class LineItem < ActiveRecord::BaseLineItem1,0
-  def self.from_cart_item(cart_item)from_cart_item7,117
-  def after_saveafter_save15,295
-  def destroydestroy21,396
-  def product_has_enough_stockproduct_has_enough_stock29,509
-
-app/models/product.rb,239
-class Product < ActiveRecord::BaseProduct1,0
-  def stock_must_be_positivestock_must_be_positive22,811
-  def image=(file)image=27,934
-  def reduce_stock(amount)reduce_stock33,1059
-  def increase_stock(amount)increase_stock37,1130
-
-app/models/product_image.rb,196
-class ProductImage < ActiveRecord::BaseProductImage1,0
-  def full_filename(thumbnail = nil)full_filename17,396
-  def thumbnail_name_for(thumbnail = nil, asset = nil)thumbnail_name_for27,800
-
-app/models/user.rb,127
-class User < AbstractUserUser1,0
-  def actual_account_stateactual_account_state5,67
-  def buyed_amountbuyed_amount15,301
-
-app/models/cart.rb,171
-class CartCart1,0
-  def initializeinitialize5,36
-  def add_product(product)add_product9,76
-  def total_pricetotal_price20,338
-  def total_itemstotal_items24,400
-
-app/models/abstract_user.rb,397
-class AbstractUser < ActiveRecord::BaseAbstractUser3,23
-  def passwordpassword14,274
-  def password=(pwd)password=18,310
-  def self.authenticate(name, password)authenticate25,480
-  def password_non_blankpassword_non_blank38,748
-  def self.encrypted_password(password, salt)encrypted_password42,853
-  def create_new_saltcreate_new_salt47,997
-  def after_destroyafter_destroy51,1074
-
-app/controllers/deposits_controller.rb,187
-class DepositsController < ApplicationControllerDepositsController1,0
-  def indexindex4,89
-  def newnew17,373
-  def createcreate29,664
-  def amount_by_useramount_by_user44,1160
-
-app/controllers/buy_prices_controller.rb,142
-class BuyPricesController < PricesControllerBuyPricesController1,0
-  def get_priceget_price5,61
-  def get_all_pricesget_all_prices9,117
-
-app/controllers/prices_controller.rb,190
-class PricesController < ApplicationControllerPricesController1,0
-  def newnew5,92
-  def createcreate18,367
-  def get_priceget_price35,725
-  def get_all_pricesget_all_prices39,778
-
-app/controllers/info_controller.rb,165
-class InfoController < ApplicationControllerInfoController1,0
-  def who_boughtwho_bought3,46
-  def top_buyerstop_buyers14,298
-  def authorizeauthorize21,414
-
-app/controllers/administrators_controller.rb,260
-class AdministratorsController < ApplicationControllerAdministratorsController1,0
-  def indexindex4,107
-  def showshow15,354
-  def newnew26,592
-  def editedit36,784
-  def createcreate42,901
-  def updateupdate59,1461
-  def destroydestroy73,1946
-
-app/controllers/orders_controller.rb,144
-class OrdersController < ApplicationControllerOrdersController1,0
-  def indexindex4,83
-  def showshow16,352
-  def destroydestroy77,1856
-
-app/controllers/application_controller.rb,198
-class ApplicationController < ActionController::BaseApplicationController4,154
-  def authorize_as_userauthorize_as_user17,577
-  def authorizeauthorize24,763
-  def set_localeset_locale31,951
-
-app/controllers/admin_controller.rb,141
-class AdminController < ApplicationControllerAdminController1,0
-  def loginlogin2,46
-  def logoutlogout21,610
-  def indexindex28,781
-
-app/controllers/products_controller.rb,247
-class ProductsController < ApplicationControllerProductsController1,0
-  def indexindex4,89
-  def showshow15,298
-  def newnew26,521
-  def editedit37,743
-  def createcreate43,844
-  def updateupdate60,1369
-  def destroydestroy77,1869
-
-app/controllers/line_items_controller.rb,249
-class LineItemsController < ApplicationControllerLineItemsController1,0
-  def indexindex4,94
-  def showshow15,312
-  def newnew26,544
-  def editedit36,735
-  def createcreate42,843
-  def updateupdate59,1388
-  def destroydestroy76,1904
-
-app/controllers/news_controller.rb,123
-class NewsController < ApplicationControllerNewsController4,38
-  def indexindex12,425
-  def authorizeauthorize36,993
-
-app/controllers/store_controller.rb,371
-class StoreController < ApplicationControllerStoreController1,0
-  def indexindex4,98
-  def add_to_cartadd_to_cart12,350
-  def empty_cartempty_cart25,738
-  def save_ordersave_order39,976
-  def amount_for_useramount_for_user58,1503
-  def authorizeauthorize70,1763
-  def find_cartfind_cart75,1797
-  def redirect_to_index(msg = nil)redirect_to_index79,1862
-
-app/controllers/sell_prices_controller.rb,144
-class SellPricesController < PricesControllerSellPricesController1,0
-  def get_priceget_price5,62
-  def get_all_pricesget_all_prices9,119
-
-app/controllers/users_controller.rb,241
-class UsersController < ApplicationControllerUsersController1,0
-  def indexindex4,80
-  def showshow15,281
-  def newnew26,489
-  def editedit36,661
-  def createcreate43,792
-  def updateupdate60,1310
-  def destroydestroy74,1764
-
-vendor/plugins/svn/test/assert_select_parent_test.rb,2667
-class AssertSelectParentTest < Test::Unit::TestCaseAssertSelectParentTest5,108
-  class AssertSelectParentController < ActionController::BaseAssertSelectParentController6,160
-    def response_with=(content)response_with=7,222
-    def response_with(&block)response_with11,288
-    def rjsrjs15,349
-    def texttext24,501
-    def not_respond_to_parentnot_respond_to_parent31,633
-    def rescue_action(e)rescue_action35,702
-  def setupsetup40,757
-  def test_basictest_basic46,932
-  def test_bubble_up_failuretest_bubble_up_failure61,1199
-  def test_fail_if_no_content_for_parenttest_fail_if_no_content_for_parent75,1504
-  def test_quotestest_quotes80,1659
-  def test_new_linetest_new_line84,1789
-    def render_rjs(&block)render_rjs89,1915
-    def render_text(text)render_text94,2005
-    def do_test_with_text(text)do_test_with_text99,2095
-class AssertSelectParentTest < Test::Unit::TestCaseAssertSelectParentTest111,2372
-  class AssertSelectParentController < ActionController::BaseAssertSelectParentController112,2424
-    def response_with=(content)response_with=113,2486
-    def response_with(&block)response_with117,2552
-    def rjsrjs121,2613
-    def texttext130,2765
-    def not_respond_to_parentnot_respond_to_parent137,2897
-    def rescue_action(e)rescue_action141,2966
-  def setupsetup146,3021
-  def test_basictest_basic152,3196
-  def test_bubble_up_failuretest_bubble_up_failure167,3463
-  def test_fail_if_no_content_for_parenttest_fail_if_no_content_for_parent181,3768
-  def test_quotestest_quotes186,3923
-  def test_new_linetest_new_line190,4053
-    def render_rjs(&block)render_rjs195,4179
-    def render_text(text)render_text200,4269
-    def do_test_with_text(text)do_test_with_text205,4359
-class AssertSelectParentTest < Test::Unit::TestCaseAssertSelectParentTest217,4636
-  class AssertSelectParentController < ActionController::BaseAssertSelectParentController218,4688
-    def response_with=(content)response_with=219,4750
-    def response_with(&block)response_with223,4816
-    def rjsrjs227,4877
-    def texttext236,5029
-    def not_respond_to_parentnot_respond_to_parent243,5161
-    def rescue_action(e)rescue_action247,5230
-  def setupsetup252,5285
-  def test_basictest_basic258,5460
-  def test_bubble_up_failuretest_bubble_up_failure273,5727
-  def test_fail_if_no_content_for_parenttest_fail_if_no_content_for_parent287,6032
-  def test_quotestest_quotes292,6187
-  def test_new_linetest_new_line296,6317
-    def render_rjs(&block)render_rjs301,6443
-    def render_text(text)render_text306,6533
-    def do_test_with_text(text)do_test_with_text311,6623
-
-vendor/plugins/svn/test/responds_to_parent_test.rb,1046
-class IFrameController < ActionController::BaseIFrameController5,108
-  def normalnormal6,156
-  def aliasedaliased12,239
-  def redirectredirect18,324
-  def no_blockno_block24,417
-  def empty_renderempty_render28,464
-  def quotesquotes35,554
-  def newlinesnewlines41,694
-  def updateupdate47,797
-  def rescue_action(e)rescue_action56,944
-class RespondsToParentTest < Test::Unit::TestCaseRespondsToParentTest61,991
-  def setupsetup62,1041
-  def test_normaltest_normal68,1206
-  def test_quotes_should_be_escapedtest_quotes_should_be_escaped74,1352
-  def test_newlines_should_be_escapedtest_newlines_should_be_escaped79,1540
-  def test_no_block_should_raisetest_no_block_should_raise84,1679
-  def test_empty_render_should_not_expand_javascripttest_empty_render_should_not_expand_javascript90,1785
-  def test_update_should_perform_combined_rjstest_update_should_perform_combined_rjs95,1905
-  def test_aliased_method_should_not_raisetest_aliased_method_should_not_raise100,2055
-  def render(action)render109,2231
-
-vendor/plugins/svn/init.rb,0
-
-vendor/plugins/svn/lib/responds_to_parent.rb,104
-module RespondsToParentRespondsToParent2,87
-  def responds_to_parent(&block)responds_to_parent7,310
-
-vendor/plugins/svn/lib/parent_selector_assertion.rb,650
-module ActionControllerActionController1,0
-  module AssertionsAssertions2,24
-    module SelectorAssertionsSelectorAssertions3,44
-      def assert_select_parent(*args, &block)assert_select_parent16,595
-module ActionControllerActionController49,1730
-  module AssertionsAssertions50,1754
-    module SelectorAssertionsSelectorAssertions51,1774
-      def assert_select_parent(*args, &block)assert_select_parent64,2325
-module ActionControllerActionController97,3460
-  module AssertionsAssertions98,3484
-    module SelectorAssertionsSelectorAssertions99,3504
-      def assert_select_parent(*args, &block)assert_select_parent112,4055
-
-vendor/plugins/attachment_fu/test/basic_test.rb,918
-class BasicTest < Test::Unit::TestCaseBasicTest3,76
-  def test_should_set_default_min_sizetest_should_set_default_min_size4,115
-  def test_should_set_default_max_sizetest_should_set_default_max_size8,224
-  def test_should_set_default_sizetest_should_set_default_size12,342
-  def test_should_set_default_thumbnails_optiontest_should_set_default_thumbnails_option16,457
-  def test_should_set_default_thumbnail_classtest_should_set_default_thumbnail_class20,582
-  def test_should_normalize_content_types_to_arraytest_should_normalize_content_types_to_array24,714
-  def test_should_sanitize_content_typetest_should_sanitize_content_type31,1246
-  def test_should_sanitize_filenamestest_should_sanitize_filenames36,1402
-  def test_should_convert_thumbnail_nametest_should_convert_thumbnail_name47,1750
-  def test_should_require_valid_thumbnails_optiontest_should_require_valid_thumbnails_option58,2286
-
-vendor/plugins/attachment_fu/test/validation_test.rb,378
-class ValidationTest < Test::Unit::TestCaseValidationTest3,76
-  def test_should_invalidate_big_filestest_should_invalidate_big_files4,120
-  def test_should_invalidate_small_filestest_should_invalidate_small_files18,533
-  def test_should_validate_content_typetest_should_validate_content_type32,954
-  def test_should_require_filenametest_should_require_filename46,1354
-
-vendor/plugins/attachment_fu/test/extra_attachment_test.rb,693
-class OrphanAttachmentTest < Test::Unit::TestCaseOrphanAttachmentTest3,76
-  def test_should_create_image_from_uploaded_filetest_should_create_image_from_uploaded_file7,195
-  def test_should_create_file_from_uploaded_filetest_should_create_file_from_uploaded_file17,526
-  def test_should_create_image_from_uploaded_file_with_custom_content_typetest_should_create_image_from_uploaded_file_with_custom_content_type27,854
-  def test_should_create_thumbnailtest_should_create_thumbnail38,1280
-  def test_should_create_thumbnail_with_geometry_stringtest_should_create_thumbnail_with_geometry_string46,1551
-class MinimalAttachmentTest < OrphanAttachmentTestMinimalAttachmentTest55,1843
-
-vendor/plugins/attachment_fu/test/test_helper.rb,953
-class Test::Unit::TestCase #:nodoc:Test41,1114
-  def create_fixtures(*table_names)create_fixtures43,1190
-  def setupsetup51,1438
-  def teardownteardown57,1668
-  def self.attachment_model(klass = nil)attachment_model64,1837
-  def self.test_against_class(test_method, klass, subclass = false)test_against_class69,1947
-  def self.test_against_subclass(test_method, klass)test_against_subclass77,2199
-    def upload_file(options = {})upload_file82,2319
-    def use_temp_file(fixture_filename)use_temp_file90,2603
-    def assert_created(num = 1)assert_created99,2959
-    def assert_not_createdassert_not_created111,3267
-    def should_reject_by_size_with(klass)should_reject_by_size_with115,3341
-    def assert_difference(object, method = nil, difference = 1)assert_difference125,3683
-    def assert_no_difference(object, method, &block)assert_no_difference131,3881
-    def attachment_model(klass = nil)attachment_model135,3997
-
-vendor/plugins/attachment_fu/test/base_attachment_tests.rb,514
-module BaseAttachmentTestsBaseAttachmentTests1,0
-  def test_should_create_file_from_uploaded_filetest_should_create_file_from_uploaded_file2,27
-  def test_reassign_attribute_datatest_reassign_attribute_data15,473
-  def test_no_reassign_attribute_data_on_niltest_no_reassign_attribute_data_on_nil29,890
-  def test_should_overwrite_old_contents_when_updatingtest_should_overwrite_old_contents_when_updating40,1203
-  def test_should_save_without_updating_filetest_should_save_without_updating_file51,1576
-
-vendor/plugins/attachment_fu/test/schema.rb,0
-
-vendor/plugins/attachment_fu/test/geometry_test.rb,1165
-class GeometryTest < Test::Unit::TestCaseGeometryTest4,140
-  def test_should_resizetest_should_resize5,182
-  def test_should_resize_no_widthtest_should_resize_no_width12,331
-  def test_should_resize_no_heighttest_should_resize_no_height19,480
-  def test_should_resize_with_percenttest_should_resize_with_percent26,628
-  def test_should_resize_with_percent_and_no_widthtest_should_resize_with_percent_and_no_width33,792
-  def test_should_resize_with_percent_and_no_heighttest_should_resize_with_percent_and_no_height40,960
-  def test_should_resize_with_lesstest_should_resize_with_less47,1126
-  def test_should_resize_with_less_and_no_widthtest_should_resize_with_less_and_no_width56,1349
-  def test_should_resize_with_less_and_no_heighttest_should_resize_with_less_and_no_height63,1515
-  def test_should_resize_with_greatertest_should_resize_with_greater70,1678
-  def test_should_resize_with_greater_and_no_widthtest_should_resize_with_greater_and_no_width79,1902
-  def test_should_resize_with_greater_and_no_heighttest_should_resize_with_greater_and_no_height86,2070
-    def assert_geometry(width, height, values)assert_geometry94,2246
-
-vendor/plugins/attachment_fu/test/fixtures/attachment.rb,1574
-class Attachment < ActiveRecord::BaseAttachment1,0
-class SmallAttachment < AttachmentSmallAttachment11,210
-class BigAttachment < AttachmentBigAttachment15,291
-class PdfAttachment < AttachmentPdfAttachment19,379
-class DocAttachment < AttachmentDocAttachment23,457
-class ImageAttachment < AttachmentImageAttachment27,545
-class ImageOrPdfAttachment < AttachmentImageOrPdfAttachment31,649
-class ImageWithThumbsAttachment < AttachmentImageWithThumbsAttachment35,765
-class FileAttachment < ActiveRecord::BaseFileAttachment42,1010
-class ImageFileAttachment < FileAttachmentImageFileAttachment47,1182
-class ImageWithThumbsFileAttachment < FileAttachmentImageWithThumbsFileAttachment52,1357
-class ImageWithThumbsClassFileAttachment < FileAttachmentImageWithThumbsClassFileAttachment60,1673
-class ImageThumbnail < FileAttachmentImageThumbnail67,1981
-class OrphanAttachment < ActiveRecord::BaseOrphanAttachment72,2122
-class MinimalAttachment < ActiveRecord::BaseMinimalAttachment78,2277
-  def filenamefilename82,2450
-  class ImageScienceAttachment < ActiveRecord::BaseImageScienceAttachment88,2499
-  class CoreImageAttachment < ActiveRecord::BaseCoreImageAttachment98,2826
-  class MiniMagickAttachment < ActiveRecord::BaseMiniMagickAttachment108,3144
-  class GD2Attachment < ActiveRecord::BaseGD2Attachment118,3466
-  class MiniMagickAttachment < ActiveRecord::BaseMiniMagickAttachment129,3766
-  class S3Attachment < ActiveRecord::BaseS3Attachment137,4046
-  class S3WithPathPrefixAttachment < S3AttachmentS3WithPathPrefixAttachment142,4256
-
-vendor/plugins/attachment_fu/test/backends/db_file_test.rb,168
-class DbFileTest < Test::Unit::TestCaseDbFileTest3,82
-  def test_should_call_after_attachment_saved(klass = Attachment)test_should_call_after_attachment_saved7,183
-
-vendor/plugins/attachment_fu/test/backends/remote/s3_test.rb,1159
-class S3Test < Test::Unit::TestCaseS3Test4,107
-  def self.test_S3?test_S35,143
-    def test_should_create_correct_bucket_name(klass = S3Attachment)test_should_create_correct_bucket_name13,368
-    def test_should_create_default_path_prefix(klass = S3Attachment)test_should_create_default_path_prefix21,697
-    def test_should_create_custom_path_prefix(klass = S3WithPathPrefixAttachment)test_should_create_custom_path_prefix29,1059
-    def test_should_create_valid_url(klass = S3Attachment)test_should_create_valid_url37,1445
-    def test_should_create_authenticated_url(klass = S3Attachment)test_should_create_authenticated_url45,1816
-    def test_should_save_attachment(klass = S3Attachment)test_should_save_attachment53,2179
-    def test_should_delete_attachment_from_s3_when_attachment_record_destroyed(klass = S3Attachment)test_should_delete_attachment_from_s3_when_attachment_record_destroyed66,2620
-      def http_response_for(url)http_response_for86,3288
-      def s3_protocols3_protocol91,3449
-      def s3_hostnames3_hostname95,3553
-      def s3_port_strings3_port_string99,3651
-    def test_flunk_s3test_flunk_s3103,3761
-
-vendor/plugins/attachment_fu/test/backends/file_system_test.rb,681
-class FileSystemTest < Test::Unit::TestCaseFileSystemTest3,82
-  def test_filesystem_size_for_file_attachment(klass = FileAttachment)test_filesystem_size_for_file_attachment7,191
-  def test_should_not_overwrite_file_attachment(klass = FileAttachment)test_should_not_overwrite_file_attachment17,558
-  def test_should_store_file_attachment_in_filesystem(klass = FileAttachment)test_should_store_file_attachment_in_filesystem35,1196
-  def test_should_delete_old_file_when_updating(klass = FileAttachment)test_should_delete_old_file_when_updating48,1663
-  def test_should_delete_old_file_when_renaming(klass = FileAttachment)test_should_delete_old_file_when_renaming65,2384
-
-vendor/plugins/attachment_fu/test/processors/core_image_test.rb,163
-class CoreImageTest < Test::Unit::TestCaseCoreImageTest3,82
-    def test_should_resize_imagetest_should_resize_image7,198
-    def test_flunktest_flunk27,871
-
-vendor/plugins/attachment_fu/test/processors/mini_magick_test.rb,165
-class MiniMagickTest < Test::Unit::TestCaseMiniMagickTest3,82
-    def test_should_resize_imagetest_should_resize_image7,207
-    def test_flunktest_flunk27,880
-
-vendor/plugins/attachment_fu/test/processors/rmagick_test.rb,2000
-class RmagickTest < Test::Unit::TestCaseRmagickTest3,82
-    def test_should_create_image_from_uploaded_filetest_should_create_image_from_uploaded_file7,190
-    def test_should_create_image_from_uploaded_file_with_custom_content_typetest_should_create_image_from_uploaded_file_with_custom_content_type21,726
-    def test_should_create_thumbnailtest_should_create_thumbnail35,1294
-    def test_should_create_thumbnail_with_geometry_stringtest_should_create_thumbnail_with_geometry_string52,2045
-    def test_should_resize_image(klass = ImageAttachment)test_should_resize_image69,2793
-    def test_should_resize_image_with_geometry(klass = ImageOrPdfAttachment)test_should_resize_image_with_geometry84,3415
-    def test_should_give_correct_thumbnail_filenames(klass = ImageWithThumbsFileAttachment)test_should_give_correct_thumbnail_filenames99,4070
-    def test_should_automatically_create_thumbnails(klass = ImageWithThumbsAttachment)test_should_automatically_create_thumbnails116,4892
-    def test_should_use_thumbnail_subclass(klass = ImageWithThumbsClassFileAttachment)test_should_use_thumbnail_subclass152,6511
-    def test_should_remove_old_thumbnail_files_when_updating(klass = ImageWithThumbsFileAttachment)test_should_remove_old_thumbnail_files_when_updating172,7523
-    def test_should_delete_file_when_in_file_system_when_attachment_record_destroyed(klass = ImageWithThumbsFileAttachment)test_should_delete_file_when_in_file_system_when_attachment_record_destroyed195,8543
-    def test_should_have_full_filename_method(klass = FileAttachment)test_should_have_full_filename_method206,9203
-    def test_should_overwrite_old_thumbnail_records_when_updating(klass = ImageWithThumbsAttachment)test_should_overwrite_old_thumbnail_records_when_updating214,9515
-    def test_should_overwrite_old_thumbnail_records_when_renaming(klass = ImageWithThumbsAttachment)test_should_overwrite_old_thumbnail_records_when_renaming235,10454
-    def test_flunktest_flunk251,11087
-
-vendor/plugins/attachment_fu/test/processors/gd2_test.rb,151
-class GD2Test < Test::Unit::TestCaseGD2Test3,82
-    def test_should_resize_imagetest_should_resize_image7,186
-    def test_flunktest_flunk27,842
-
-vendor/plugins/attachment_fu/test/processors/image_science_test.rb,169
-class ImageScienceTest < Test::Unit::TestCaseImageScienceTest3,82
-    def test_should_resize_imagetest_should_resize_image7,213
-    def test_flunktest_flunk27,889
-
-vendor/plugins/attachment_fu/init.rb,51
-  def make_tmpname(basename, n)make_tmpname5,146
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/backends/s3_backend.rb,1500
-module Technoweenie # :nodoc:Technoweenie1,0
-  module AttachmentFu # :nodoc:AttachmentFu2,30
-    module BackendsBackends3,62
-      module S3BackendS3Backend120,5799
-        class RequiredLibraryNotFoundError < StandardError; endRequiredLibraryNotFoundError121,5822
-        class ConfigFileNotFoundError < StandardError; endConfigFileNotFoundError122,5886
-        def self.included(base) #:nodoc:included124,5946
-        def self.protocolprotocol150,6900
-        def self.hostnamehostname154,7016
-        def self.port_stringport_string158,7131
-        module ClassMethodsClassMethods162,7310
-          def s3_protocols3_protocol163,7338
-          def s3_hostnames3_hostname167,7458
-          def s3_port_strings3_port_string171,7578
-        def filename=(value)filename=177,7787
-        def attachment_path_idattachment_path_id183,8024
-        def base_pathbase_path189,8253
-        def full_filename(thumbnail = nil)full_filename195,8480
-        def s3_url(thumbnail = nil)s3_url209,9220
-        def authenticated_s3_url(*args)authenticated_s3_url238,10683
-        def create_temp_filecreate_temp_file244,10942
-        def current_datacurrent_data248,11026
-        def s3_protocols3_protocol252,11116
-        def s3_hostnames3_hostname256,11228
-        def s3_port_strings3_port_string260,11342
-          def destroy_filedestroy_file266,11519
-          def rename_filerename_file270,11616
-          def save_to_storagesave_to_storage286,12046
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/backends/file_system_backend.rb,832
-module Technoweenie # :nodoc:Technoweenie2,17
-  module AttachmentFu # :nodoc:AttachmentFu3,47
-    module BackendsBackends4,79
-      module FileSystemBackendFileSystemBackend6,150
-        def self.included(base) #:nodoc:included7,181
-        def full_filename(thumbnail = nil)full_filename19,688
-        def base_pathbase_path25,1059
-        def attachment_path_idattachment_path_id30,1217
-        def partitioned_path(*args)partitioned_path36,1502
-        def public_filename(thumbnail = nil)public_filename42,1740
-        def filename=(value)filename=46,1881
-        def create_temp_filecreate_temp_file52,2124
-          def destroy_filedestroy_file58,2295
-          def rename_filerename_file68,2790
-          def save_to_storagesave_to_storage80,3233
-          def current_datacurrent_data91,3669
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/backends/db_file_backend.rb,432
-module Technoweenie # :nodoc:Technoweenie1,0
-  module AttachmentFu # :nodoc:AttachmentFu2,30
-    module BackendsBackends3,62
-      module DbFileBackendDbFileBackend5,124
-        def self.included(base) #:nodoc:included6,151
-        def create_temp_filecreate_temp_file12,459
-        def current_datacurrent_data17,601
-          def destroy_filedestroy_file23,757
-          def save_to_storagesave_to_storage28,895
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/rmagick_processor.rb,488
-module Technoweenie # :nodoc:Technoweenie2,18
-  module AttachmentFu # :nodoc:AttachmentFu3,48
-    module ProcessorsProcessors4,80
-      module RmagickProcessorRmagickProcessor5,102
-        def self.included(base)included6,132
-        module ClassMethodsClassMethods11,286
-          def with_image(file, &block)with_image13,396
-        def process_attachment_with_processingprocess_attachment_with_processing29,1041
-        def resize_image(img, size)resize_image40,1498
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/mini_magick_processor.rb,493
-module Technoweenie # :nodoc:Technoweenie2,22
-  module AttachmentFu # :nodoc:AttachmentFu3,52
-    module ProcessorsProcessors4,84
-      module MiniMagickProcessorMiniMagickProcessor5,106
-        def self.included(base)included6,139
-        module ClassMethodsClassMethods11,293
-          def with_image(file, &block)with_image13,406
-        def process_attachment_with_processingprocess_attachment_with_processing28,940
-        def resize_image(img, size)resize_image39,1399
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/core_image_processor.rb,495
-module Technoweenie # :nodoc:Technoweenie3,44
-  module AttachmentFu # :nodoc:AttachmentFu4,74
-    module ProcessorsProcessors5,106
-      module CoreImageProcessorCoreImageProcessor6,128
-        def self.included(base)included7,160
-        module ClassMethodsClassMethods12,322
-          def with_image(file, &block)with_image13,350
-          def process_attachment_with_processingprocess_attachment_with_processing19,497
-          def resize_image(img, size)resize_image30,996
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/image_science_processor.rb,500
-module Technoweenie # :nodoc:Technoweenie2,24
-  module AttachmentFu # :nodoc:AttachmentFu3,54
-    module ProcessorsProcessors4,86
-      module ImageScienceProcessorImageScienceProcessor5,108
-        def self.included(base)included6,143
-        module ClassMethodsClassMethods11,297
-          def with_image(file, &block)with_image13,413
-          def process_attachment_with_processingprocess_attachment_with_processing19,548
-          def resize_image(img, size)resize_image29,971
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu/processors/gd2_processor.rb,482
-module Technoweenie # :nodoc:Technoweenie3,33
-  module AttachmentFu # :nodoc:AttachmentFu4,63
-    module ProcessorsProcessors5,95
-      module Gd2ProcessorGd2Processor6,117
-        def self.included(base)included7,143
-        module ClassMethodsClassMethods12,305
-          def with_image(file, &block)with_image14,410
-          def process_attachment_with_processingprocess_attachment_with_processing21,562
-          def resize_image(img, size)resize_image32,989
-
-vendor/plugins/attachment_fu/lib/technoweenie/attachment_fu.rb,3168
-module Technoweenie # :nodoc:Technoweenie1,0
-  module AttachmentFu # :nodoc:AttachmentFu2,30
-    class ThumbnailError < StandardError;  endThumbnailError9,425
-    class AttachmentError < StandardError; endAttachmentError10,472
-    module ActMethodsActMethods12,520
-      def has_attachment(options = {})has_attachment41,2998
-      def load_related_exception?(e) #:nodoc: implementation specificload_related_exception?107,6423
-    module ClassMethodsClassMethods120,6895
-      def validates_as_attachmentvalidates_as_attachment124,7044
-      def image?(content_type)image?130,7294
-      def self.extended(base)extended134,7381
-        def after_resize(&block)after_resize155,8220
-        def after_attachment_saved(&block)after_attachment_saved168,8698
-        def before_thumbnail_saved(&block)before_thumbnail_saved181,9175
-      def thumbnail_classthumbnail_class188,9449
-      def copy_to_temp_file(file, temp_base_name)copy_to_temp_file194,9769
-      def write_to_temp_file(data, temp_base_name)write_to_temp_file202,10078
-    module InstanceMethodsInstanceMethods211,10325
-      def self.included(base)included212,10352
-      def image?image?217,10607
-      def thumbnailable?thumbnailable?222,10820
-      def thumbnail_classthumbnail_class227,10993
-      def thumbnail_name_for(thumbnail = nil)thumbnail_name_for232,11152
-      def create_or_update_thumbnail(temp_file, file_name_suffix, *size)create_or_update_thumbnail244,11612
-      def content_type=(new_type)content_type=259,12320
-      def filename=(new_name)filename=264,12454
-      def image_sizeimage_size269,12648
-      def save_attachment?save_attachment?274,12819
-      def uploaded_data() nil; enduploaded_data279,12954
-      def uploaded_data=(file_data)uploaded_data=292,13484
-      def temp_pathtemp_path308,14296
-      def temp_pathstemp_paths314,14498
-      def temp_path=(value)temp_path=322,15025
-      def temp_datatemp_data328,15202
-      def temp_data=(data)temp_data=333,15376
-      def copy_to_temp_file(file)copy_to_temp_file338,15540
-      def write_to_temp_file(data)write_to_temp_file343,15713
-      def create_temp_file() endcreate_temp_file348,15939
-      def with_image(&block)with_image356,16219
-        def random_tempfile_filenamerandom_tempfile_filename362,16378
-        def sanitize_filename(filename)sanitize_filename366,16489
-        def set_size_from_temp_pathset_size_from_temp_path378,16947
-        def attachment_attributes_valid?attachment_attributes_valid?383,17157
-        def find_or_initialize_thumbnail(file_name_suffix)find_or_initialize_thumbnail391,17529
-        def process_attachmentprocess_attachment398,17886
-        def after_process_attachmentafter_process_attachment403,18113
-        def resize_image_or_thumbnail!(img)resize_image_or_thumbnail!417,18809
-          def callback_with_args(method, arg = self)callback_with_args429,19388
-          def run_callbacks(kind, options = {}, &block)run_callbacks441,19730
-          def callback_with_args(method, arg = self)callback_with_args447,19982
-        def destroy_thumbnailsdestroy_thumbnails460,20364
-
-vendor/plugins/attachment_fu/lib/geometry.rb,305
-class GeometryGeometry4,229
-  def initialize(width=nil, height=nil, x=nil, y=nil, flag=nil)initialize15,526
-  def self.from_s(str)from_s30,1091
-  def to_sto_s41,1395
-  def new_dimensions_for(orig_width, orig_height)new_dimensions_for52,1807
-class ArrayArray83,2918
-  def /(geometry)/87,3073
-
-vendor/plugins/attachment_fu/install.rb,0
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/processor.rb,627
-module RedArtisanRedArtisan58,2445
-  module CoreImageCoreImage59,2463
-    class ProcessorProcessor60,2482
-      def initialize(original)initialize62,2505
-      def render(&block)render70,2702
-        def create_core_image_context(width, height)create_core_image_context79,2977
-        def vector(x, y, w, h)vector86,3485
-module OSXOSX93,3601
-  class CIImageCIImage94,3612
-    def method_missing_with_filter_processing(sym, *args, &block)method_missing_with_filter_processing97,3656
-    def save(target, format = OSX::NSJPEGFileType, properties = nil)save111,4211
-    def self.from(filepath)from117,4486
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/perspective.rb,333
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module PerspectivePerspective4,56
-        def perspective(top_left, top_right, bottom_left, bottom_right)perspective6,90
-        def perspective_tiled(top_left, top_right, bottom_left, bottom_right)perspective_tiled14,511
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/effects.rb,320
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module EffectsEffects4,56
-        def spotlight(position, points_at, brightness, concentration, color)spotlight6,86
-        def edges(intensity = 1.00)edges15,582
-          def vector3(x, y, w)vector325,878
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/watermark.rb,221
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module WatermarkWatermark4,56
-        def watermark(watermark_image, tile = false, strength = 0.1)watermark6,88
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/color.rb,246
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module ColorColor4,56
-        def greyscale(color = nil, intensity = 1.00)greyscale6,84
-        def sepia(intensity = 1.00)sepia16,503
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/scale.rb,311
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module ScaleScale4,56
-        def resize(width, height)resize6,84
-        def thumbnail(width, height)thumbnail20,649
-        def fit(size)fit31,983
-          def scale(width, height)scale39,1308
-
-vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/quality.rb,274
-module RedArtisanRedArtisan1,0
-  module CoreImageCoreImage2,18
-    module FiltersFilters3,37
-      module QualityQuality4,56
-        def reduce_noise(level = 0.02, sharpness = 0.4)reduce_noise6,86
-        def adjust_exposure(input_ev = 0.5)adjust_exposure14,430

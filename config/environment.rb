@@ -2,7 +2,7 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Pigproject::Application.initialize!
+PigProject::Application.initialize!
 
 
 # Be sure to restart your server when you modify this file

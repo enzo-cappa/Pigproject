@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Pigproject::Application.load_tasks
+PigProject::Application.load_tasks

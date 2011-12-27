@@ -1,4 +1,4 @@
-Pigproject::Application.routes.draw do
+PigProject::Application.routes.draw do
   resources :prices
   match 'deposit/amount_by_user' => 'deposits#amount_by_user'
   resources :deposits
@@ -9,6 +9,6 @@ Pigproject::Application.routes.draw do
   resources :orders
   resources :products
   resources :administrators
-  match '/' => 'store#index'
+  root :to => 'store#index'
   match '/:controller(/:action(/:id))'
 end
