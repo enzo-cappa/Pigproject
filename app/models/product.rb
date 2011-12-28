@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   has_many :buy_prices, :dependent => :destroy
   has_one :active_sell_price, :class_name => "SellPrice"
   has_one :active_buy_price, :class_name => "BuyPrice"
-  has_one :product_image, :dependent => :destroy
+  has_attached_file :image, :styles => { :medium => "100x100>", :thumb => "64x64>" }
   
   validates_presence_of :title, :description, :active_sell_price, :active_buy_price
   validates_uniqueness_of :title
@@ -26,11 +26,11 @@ class Product < ActiveRecord::Base
       stock < 0
   end
 
-  def image=(file)
-    image = ProductImage.new(:uploaded_data => file)
-    image.save
-    self.product_image = image
-  end
+  # def image=(file)
+    # image = ProductImage.new(:uploaded_data => file)
+    # image.save
+    # self.product_image = image
+  # end
 
   def reduce_stock(amount)
     self.stock = self.stock - amount

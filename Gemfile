@@ -7,6 +7,8 @@ gem 'rails', '3.1.0'
 
 gem 'pg'
 gem 'will_paginate'
+gem "paperclip", "~> 2.4"
+gem "dynamic_form"
 
 # Use unicorn as the web server
 # gem 'unicorn'

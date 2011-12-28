@@ -6,7 +6,7 @@
     <% for product in @products %>
       <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
         <td>
-          <%= image_for(product, :medium) %>
+          <%= image_tag product.image.url(:medium) %>
         </td>
         <td class="list-description">
           <dl>

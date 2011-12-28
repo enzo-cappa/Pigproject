@@ -42,6 +42,7 @@ en:
     edit: "Edit"
     destroy: "Destroy"
     show: "Show"
+    create: "Create"
 
   confirm:
     are_you_sure: "Are you sure?"

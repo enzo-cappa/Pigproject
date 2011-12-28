@@ -199,6 +199,10 @@ h1 {
 /* START:form */
 /* Styles for order form */
 
+.depot-form {
+   width: 40em;
+}
+
 .depot-form fieldset {
    background: #efe;
 }
@@ -211,7 +215,7 @@ h1 {
 }
 
 .depot-form label {
-   width: 6em;
+   width: 10em;
    float: left;
    text-align: right;
    padding-top: 0.2em;

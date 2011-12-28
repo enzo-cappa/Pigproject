@@ -1,14 +1,18 @@
 PigProject::Application.routes.draw do
-  resources :prices
-  match 'deposit/amount_by_user' => 'deposits#amount_by_user'
-  resources :deposits
-  resources :users do
-    resources :orders, :deposits
+  scope "/:locale", :locale => /en|es/ do
+    resources :prices    
+    resources :deposits
+    resources :users do
+      resources :orders, :deposits
+    end
+    resources :line_items
+    resources :orders
+    resources :products
+    resources :administrators
+    match '/:controller(/:action(/:id))'          
   end
-  resources :line_items
-  resources :orders
-  resources :products
-  resources :administrators
-  root :to => 'store#index'
-  match '/:controller(/:action(/:id))'
+  #match 'deposit/amount_by_user' => 'deposits#amount_by_user'
+  
+  match "/:locale" => 'store#index'
+  root :to => 'store#index', :locale => I18n.default_locale
 end

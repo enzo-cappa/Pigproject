@@ -1,40 +1,4 @@
-
 <div class="depot-form">
-  <h1>New product</h1>
-  <% form_for(@product, :html => {:multipart => true }) do |f| %>
-    <%= f.error_messages %>
-    <fieldset>
-      <div>    
-          <%= f.label :title %>
-          <%= f.text_field :title %>    
-      </div>
-      <div>
-          <%= f.label :description %>
-          <%= f.text_area :description %>
-      </div>
-      <div>
-          <%= f.label :image %>
-          <%= f.file_field 'image'  %>
-      </div>
-      <% f.fields_for :active_sell_price do |sell_p_f| %>
-      <div>
-          <%= sell_p_f.label :sell_price %>
-          <%= sell_p_f.text_field :value %>
-      </div>
-      <% end %>
-      <% f.fields_for :active_buy_price do |sell_b_f| %>
-        <div>
-            <%= sell_b_f.label :buy_price %>
-            <%= sell_b_f.text_field :value %>
-        </div>
-      <% end %>
-      <div>
-          <%=f.label :stock %>
-          <%=f.text_field :stock %>
-      </div>
-      <div>
-          <%= f.submit 'Create' %>
-    </fieldset>
-    </div>
-  <% end %>
+	<h1><%= t "products.new" %></h1>
+	<%= render 'form' %>
 </div>

@@ -1,37 +1,4 @@
-<h1>Editing product</h1>
-<% form_for(@product, :html => {:multipart => true }) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :image %><br />
-    <%= f.file_field 'image'  %>
-  </p>
-  <p>
-    <%=f.label :active_sell_price %><br/>
-    <span id="sell_prices"><%= render :partial => 'sell_prices', :object => @product.sell_prices %></span>
-    <%= link_to_sell_prices_popup (@product.id) %> 
-  </p>
-  <p>
-    <%=f.label :active_buy_price %><br/>
-    <span id="buy_prices"><%= render :partial => 'buy_prices', :object => @product.buy_prices %> </span>
-    <%= link_to_buy_prices_popup (@product.id) %>
-  </p>
-  <p>
-    <%=f.label :stock %><br />
-    <%=f.text_field :stock %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<div class="depot-form">
+	<h1><%= t "products.new" %></h1>
+	<%= render 'form' %>
+</div>

@@ -31,6 +31,11 @@ es:
   flash:
     thanks: "Gracias por su pedido"
 
+  helpers:
+    submit:
+      create: "Crear %{model}"
+      update: "Actualizar %{model}"
+      
   activerecord:
     errors:
       template:
@@ -63,6 +68,7 @@ es:
       deposit: "dep&oacute;sito"
       user: "usuario"
       administrator: "administrador"
+      product: "producto"
     attributes:
       order:
         address: "Direcci&oacute;n"
@@ -71,6 +77,15 @@ es:
         pay_type: "Forma de pago"
       deposit:
         amount: "Monto"
+      product:
+        title: "Título"
+        description: "Descripción"
+        image: "Imagen"
+        stock: "Stock"
+      sell_price: 
+        value: "Precio de venta"
+      buy_price: 
+        value: "Precio de compra"
 
   support:
     array:
@@ -79,10 +94,12 @@ es:
       last_word_connector: " y "
 
   model:
+     new: "Nuevo"
      edit: "Editar"
      destroy: "Eliminar"
      show: "Ver"
      back: "Atrás"
+     create: "Crear"
 
   confirm:
     are_you_sure: "¿Está seguro?"

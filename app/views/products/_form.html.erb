@@ -1,0 +1,36 @@
+<%= form_for(@product, :html => {:multipart => true }) do |f| %>
+<%= f.error_messages %>
+<fieldset>
+	<div>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+	<div>
+		<%= f.label :description %>
+		<%= f.text_area :description %>
+	</div>
+	<div>
+		<%= f.label :image %>
+		<%= f.file_field :image %>
+	</div>
+	<div>
+		<%= f.fields_for :active_sell_price do |sell_p_f| %>
+		<%= sell_p_f.label :value %>
+		<%= sell_p_f.text_field :value %>
+		<% end %>
+	</div>
+	<div>
+		<%= f.fields_for :active_buy_price do |sell_b_f| %>
+		<%= sell_b_f.label :value %>
+		<%= sell_b_f.text_field :value %>
+		<% end %>
+	</div>
+	<div>
+		<%= f.label :stock %>
+		<%= f.text_field :stock %>
+	</div>
+	<div>
+		<%= f.submit %>
+	</div>
+</fieldset>
+<% end %>
