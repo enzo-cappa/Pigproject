@@ -1,66 +1,128 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
-    <title><%= I18n.t('layout.title') %> </title>
-    <%= stylesheet_link_tag "depot", :media => "all" %>
-    
-    <%= stylesheet_link_tag 'default' %>
-    <%= stylesheet_link_tag 'alert' %>
-    <%= stylesheet_link_tag 'alphacube' %>
-    <%= javascript_include_tag 'window'%>
-    <%= javascript_include_tag 'tooltip'%>
-  </head>
-  <body id="store">
-  <div id="banner">
-    <%= image_tag("logo.png" ) %>
-    <%= @page_title || I18n.t('layout.title') %>
-  </div>
-  <div id="columns">
-    <div id="side">
-      <% if @cart %>
-        <%= hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
-          <%= render(:partial => "cart" , :object => @cart) %>
-        <% end %>
-      <% end %>
-      <br />
-      <a href="/"><%= I18n.t 'layout.side.home' %></a><br />
-      <a href="/"><%= I18n.t 'layout.side.questions' %></a><br />
-      <%= link_to I18n.t('layout.side.news'), :controller => 'news', :action => 'index' %><br />
-      <a href="/"><%= I18n.t 'layout.side.contact' %></a><br />
-      <%= link_to 'Top Buyers', :controller => 'info', :action => 'top_buyers' %><br />
-
-      <br />
-      <% if session[:user_id] %>
-        <%= link_to 'Account resume', :controller => 'store', :action => 'amount_for_user' %><br />
-      <% end %>
-      <% if session[:admin_id] %>
-        <br />
-        <%= link_to 'Orders', :controller => 'orders' %><br />
-        <%= link_to  I18n.t('products.name'), :controller => 'products' %><br />
-        <%= link_to 'Users', :controller => 'users' %><br />
-        <%= link_to 'Administrators', :controller => 'administrators' %> <br />
-        <%= link_to 'Deposits', :controller => 'deposits' %> <br />
-        <%= link_to 'Delinquents', :controller => 'deposits', :action => 'amount_by_user' %>
-        <br />
-      <% end %>
-      <% if session[:admin_id] or session[:user_id] %>
-        <br />
-        <%= link_to 'Logout', :controller => 'admin', :action => 'logout' %>
-      <% else %>
-        <br />
-        <%= link_to 'Login', :controller => 'admin', :action => 'login' %>
-      <% end %>
-    </div>
-    <div id="main">
-      <% if flash[:notice] -%>
-        <div id="notice"><%= flash[:notice] %></div>
-      <% end -%>
-      <%= yield :layout %>
-    </div>
-  </div>
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title><%= I18n.t('layout.title') %> </title>
+		
+		<%= stylesheet_link_tag "indication.css" %>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<div id="logo">
+					<h1><a href="#"><%= I18n.t('layout.title') %></a></h1>
+				</div>
+			</div>
+			<!-- end #header -->
+			<div id="menu">
+				<ul>
+					<li class="current_page_item">
+						<a href="/"><%= I18n.t 'layout.side.home' %></a>
+					</li>
+					<li>
+						<a href="#"><%= I18n.t 'layout.side.questions' %></a>
+					</li>
+					<li>
+						<%= link_to I18n.t('layout.side.news'), :controller => 'news', :action => 'index' %>
+					</li>
+					<li>
+						<a href="#"><%= I18n.t 'layout.side.contact' %></a>
+					</li>
+					<li>
+						<%= link_to 'Top Buyers', :controller => 'info', :action => 'top_buyers' %>
+					</li>
+					<!-- <li><a href="#">Contact</a></li> -->
+				</ul>
+			</div>
+			<!-- end #menu -->
+			<div id="page">
+				<div id="page-bgtop">
+					<div id="page-bgbtm">
+						<div id="content">
+							<% if flash[:notice] -%>
+							<div id="notice">
+								<%= flash[:notice] %>
+							</div>
+							<% end -%>
+							<%= yield :layout %>
+							<div style="clear: both;">
+								&nbsp;
+							</div>
+						</div>
+						<!-- end #content -->
+						<div id="sidebar">
+							<ul>
+								<li>
+									<div id="cart" >
+										<% if @cart %>
+										<%= hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
+										<%= render(:partial => "cart" , :object => @cart) %>
+										<% end %>
+										<% end %>
+									</div>
+									<div style="clear: both;">
+										&nbsp;
+									</div>
+								</li>
+								<% if session[:user_id] %>
+								<li>
+									<h2><%= I18n.t('title.usertools')%></h2>
+									<ul>
+										<li>
+											<%= link_to 'Account resume', :controller => 'store', :action => 'amount_for_user' %>
+										</li>
+									</ul>
+								</li>
+								<% end %>
+								<% if session[:admin_id] %>
+								<li>
+									<h2><%= I18n.t('title.admintools')%></h2>
+									<ul>
+										<li>
+											<%= link_to 'Orders', :controller => 'orders' %>
+										</li>
+										<li>
+											<%= link_to  I18n.t('products.name'), :controller => 'products' %>
+										</li>
+										<li>
+											<%= link_to 'Users', :controller => 'users' %>
+										</li>
+										<li>
+											<%= link_to 'Administrators', :controller => 'administrators' %>
+										</li>
+										<li>
+											<%= link_to 'Deposits', :controller => 'deposits' %>
+										</li>
+										<li>
+											<%= link_to 'Delinquents', :controller => 'deposits', :action => 'amount_by_user' %>
+										</li>
+									</ul>
+								</li>
+								<% end %> <!-- Login/logout block -->
+								<li>
+									<% if session[:admin_id] or session[:user_id] %> <h2><%= link_to I18n.t('title.logout'), :controller => 'admin', :action => 'logout' %></h2>
+									<% else %> 
+										<h2><%= link_to I18n.t('title.login'), :controller => 'admin', :action => 'login' %></h2>
+									<% end %>
+								</li>
+							</ul>
+						</div>
+						<!-- end #sidebar -->
+						<div style="clear: both;">
+							&nbsp;
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end #page -->
+		</div>
+		<div id="footer">
+			<p>
+				Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.
+			</p>
+		</div>
+		<!-- end #footer -->
+	</body>
 </html>
-
-

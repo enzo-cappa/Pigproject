@@ -1,5 +1,6 @@
-PigProject::Application.routes.draw do
-  scope "/:locale", :locale => /en|es/ do
+PigProject::Application.routes.draw do  
+  scope "(:locale)", :locale => /en|es/ do
+    
     resources :prices    
     resources :deposits
     resources :users do
@@ -13,6 +14,7 @@ PigProject::Application.routes.draw do
   end
   #match 'deposit/amount_by_user' => 'deposits#amount_by_user'
   
-  match "/:locale" => 'store#index'
-  root :to => 'store#index', :locale => I18n.default_locale
+  
+  match "/:locale" => 'store#index'  
+  root :to => 'store#index'     
 end

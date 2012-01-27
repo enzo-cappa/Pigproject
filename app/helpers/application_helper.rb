@@ -14,11 +14,11 @@ module ApplicationHelper
   end
 
   def image_for_show(entity)
-    link_to(image_tag("/images/show.png", {:alt => 'show', :class => 'linkimage'}), entity)
+   # link_to(image_tag("/images/show.png", {:alt => 'show', :class => 'linkimage'}), entity)
   end
 
   def image_for_destroy(entity)
-    link_to(image_tag("/images/destroy.png", {:alt => 'destroy', :class => 'linkimage' }), entity, :confirm => 'Are you sure?', :method => :delete )
+    #link_to(image_tag("/images/destroy.png", {:alt => 'destroy', :class => 'linkimage' }), entity, :confirm => 'Are you sure?', :method => :delete )
   end
 
 end

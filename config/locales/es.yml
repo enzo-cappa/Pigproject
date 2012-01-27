@@ -244,6 +244,8 @@ es:
         format: "%u %n"
         separator: ","
         delimiter: "."
+  title:
+    login: "Login"
 
 
 

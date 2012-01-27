@@ -1,6 +1,6 @@
 en:
   layout:
-    title: "Pragmatic Bookshelf"
+    title: "The Pig Project"
     side:
       home: "Home"
       questions: "Questions"
@@ -51,6 +51,9 @@ en:
     list: "Listing products"
     name: "Products"
     new: "New product"
+    
+  title:
+    login: "Login"
 
 
 

@@ -217,14 +217,15 @@ h1 {
 .depot-form label {
    width: 10em;
    float: left;
-   text-align: right;
-   padding-top: 0.2em;
+   text-align: left;
+   /*padding-top: 0.2em;*/
    margin-right: 0.1em;
    display: block;
 }
 
 .depot-form select, .depot-form textarea, .depot-form input {
-   margin-left: 0.5em;
+	margin-top: 0.1em;
+   /*margin-left: 0.5em;*/
 }
 
 .depot-form .submit {

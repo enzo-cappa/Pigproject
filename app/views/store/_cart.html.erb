@@ -1,12 +1,16 @@
-<div class="cart-title"><%= I18n.t 'layout.cart.title' %></div>
 <table>
-  <%= render(:partial => "cart_item" , :collection => cart.items) %>
-  <tr class="total-line">
-    <td colspan="2">Total</td>
-    <td class="total-cell"><%= number_to_currency(cart.total_price) %></td>
-  </tr>
+	<caption><%=I18n.t 'layout.cart.title' %></caption>
+  	<%= render(:partial => "cart_item" , :collection => cart.items) %>
+  	<tr class="total-line">
+    	<td colspan="2" style="text-align: right;">Total</td>
+    	<td class="total-cell"><%= number_to_currency(cart.total_price) %></td>
+  	</tr>
 </table>
-<%= button_to I18n.t('layout.cart.button.checkout'), { :action => :save_order }, :confirm => "Are you sure? This can't be undone." %>
-<%= button_to I18n.t('layout.cart.button.empty'), :action => :empty_cart  %>
-
-
+<div class="button_to">
+	<div>
+		<%= button_to I18n.t('layout.cart.button.checkout'), { :action => :save_order }, :confirm => "Are you sure? This can't be undone." %>
+	</div>
+	<div>
+		<%= button_to I18n.t('layout.cart.button.empty'), :action => :empty_cart  %>
+	</div>
+</div>

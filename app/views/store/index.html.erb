@@ -1,28 +1,49 @@
-<h1><%= I18n.t 'main.title' %></h1>
-<div class ="pagination">
-  <% @letter_options_list.each do |letter| %>
-    <% if params[:letter] == letter %>
-      <span class="current"><%= letter %></span>
-    <% else %>
-      <%= link_to letter, :controller=>'store', :action=>'index', :letter=> letter %>
-    <% end %>
-  <% end %>
+<!-- <h1><%= I18n.t 'main.title' %></h1> -->
+<!-- <div style="clear: both;">
+	&nbsp;
+</div> -->
+<!-- <div class ="pagination">
+	<% @letter_options_list.each do |letter| %>
+	<% if params[:letter] == letter %> <span class="current"><%= letter %></span>
+	<% else %>
+	<%= link_to letter, :controller=>'store', :action=>'index', :letter=> letter %>
+	<% end %>
+	<% end %>
+</div> -->
+<!-- <div style="clear: both;">
+	&nbsp;
+</div> -->
+<% for product in @products %>
+<div class="post">
+	<h2 class="title"><%= link_to product.title, product %> </h2>
+	<p class="meta">		
+		<span class="date">
+			<%= h product.title %>
+		</span>
+		<span class="posted">
+			<%= link_to I18n.t('main.button.add'), { :action => 'add_to_cart', :id => product}, :remote => true %>
+		</span>
+	</p>
+	<div style="clear: both;">
+		&nbsp;
+	</div>
+	<div class="entry">
+		<p>
+			<%= h truncate(product.description.gsub(/<.*?>/,''), :length => 80) %>
+		</p>
+		<%= image_tag product.image.url(:medium) %>
+		<p>
+			Stock: <%= product.stock %>
+			<!-- <div class="price-line">
+				<span class="price" ><%= number_to_currency(product.active_sell_price.value) %></span>				
+			</div> -->
+			<%= number_to_currency(product.active_sell_price.value) %>
+		</p>
+		<p class="links">
+			<a href="#">Read More</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="#">Comments</a>
+		</p>
+	</div>
 </div>
-<% for product in @products -%>
-  <div class="entry">
-    <%= image_for(product) %>
-    <h3><%=h product.title %></h3>
-    <%= product.description %> <br />
-    Stock:
-    <%= product.stock %>
-    <div class="price-line">
-      <span class="price" ><%= number_to_currency(product.active_sell_price.value) %></span>
-      <%= form_tag :url => { :action => 'add_to_cart', :id => product
-      }, :remote => true do %>
-         <%= submit_tag I18n.t('main.button.add') %>
-<% end %>
-    </div>
-  </div>
-<% end %>
-
-
+<% end %> 
