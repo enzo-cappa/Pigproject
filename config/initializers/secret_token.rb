@@ -1,0 +1,1 @@
+PigProject::Application.config.secret_token = '65174ebcdc77a1745c2c27fc1991e816397a0957d845a96f20b3aaab36016dd9fed8471b301e88e10c2f24849d1b6d2e4e34af5a6646da873f6063b5d2f8c43'

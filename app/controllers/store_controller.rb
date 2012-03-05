@@ -1,13 +1,13 @@
 class StoreController < ApplicationController
   before_filter :find_cart, :except => :empty_cart
-
+  skip_before_filter :authenticate_user!
+  
   def index
     @letter = params[:letter].blank? ? 'a' : params[:letter]
     @letter_options_list = Product.for_sale.collect!{ |c| c.title[0,1].upcase }.uniq
     @products = Product.for_sale.starting_with(params[:letter])
     @cart = find_cart
   end
-
 
   def add_to_cart
     product = Product.find(params[:id])
@@ -20,7 +20,7 @@ class StoreController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     logger.error("Attempt to access invalid product #{params[:id]}" )
     redirect_to_index("Invalid product")
-  end
+    end
 
   def empty_cart
     session[:cart] = nil
@@ -49,16 +49,11 @@ class StoreController < ApplicationController
   def amount_for_user
     user = User.find_by_id(session[:user_id])
     if user
-      @amount = user.actual_account_state
+    @amount = user.actual_account_state
     else
       flash[:notice] = "Please log in"
       redirect_to :controller => 'admin' , :action => 'login'
     end
-  end
-
-  protected
-
-  def authorize
   end
 
   private
@@ -71,7 +66,5 @@ class StoreController < ApplicationController
     flash[:notice] = msg if msg
     redirect_to :action => 'index'
   end
-
-
 
 end

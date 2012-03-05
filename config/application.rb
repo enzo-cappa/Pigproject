@@ -38,5 +38,11 @@ module PigProject
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    # Enable the asset pipeline
+    config.assets.enabled = true
+    #action mailer configuration
+    config.action_mailer.default_url_options = { :host => "localhost:3000" }
+    #heroku compat
+    config.assets.initialize_on_precompile = false
   end
 end
