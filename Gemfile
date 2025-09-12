@@ -1,13 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1'
 
 # Bundle edge Rails instead:
 #gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
 gem 'will_paginate'
-gem "paperclip", "~> 2.4"
+gem "paperclip", "~> 2.5", ">= 2.5.0"
 gem "dynamic_form"
 
 # Use unicorn as the web server
